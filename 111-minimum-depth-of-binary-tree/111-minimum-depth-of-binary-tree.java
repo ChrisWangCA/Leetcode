@@ -15,7 +15,7 @@
  */
 class Solution {
     public int minDepth(TreeNode root) {
-               int count = 0;
+        int count = 0;
         if(root == null){
             return 0;
         }
@@ -23,6 +23,7 @@ class Solution {
         queue.offer(root);
         while (!queue.isEmpty()){
             int len = queue.size();
+            count++;
             while (len>0){
                 TreeNode temp = queue.poll();
                 if(temp.left!=null){
@@ -32,12 +33,10 @@ class Solution {
                     queue.offer(temp.right);
                 }
                 if (temp.left == null && temp.right == null){
-                    count++;
                     return count;
                 }
                 len--;
             }
-            count++;
         }
         return count;
     }
