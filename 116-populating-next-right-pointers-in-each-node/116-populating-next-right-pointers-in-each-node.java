@@ -31,15 +31,15 @@ class Solution {
         while(!queue.isEmpty()){
             int len = queue.size();
             for(int i=0;i<len;i++){
-                Node node = queue.poll();
-                if(node.left!=null){
-                    queue.offer(node.left);
+                Node temp = queue.poll();
+                if(temp.left!=null){
+                    queue.offer(temp.left);
                 }
-                if(node.right!=null){
-                    queue.offer(node.right);
+                if(temp.right!=null){
+                    queue.offer(temp.right);
                 }
                 if(i!=len-1){
-                    node.next = queue.peek();
+                    temp.next = queue.peek();
                 }
             }
         }
