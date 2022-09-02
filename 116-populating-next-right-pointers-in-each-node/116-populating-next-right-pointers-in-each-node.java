@@ -38,7 +38,7 @@ class Solution {
                 if(temp.right!=null){
                     queue.offer(temp.right);
                 }
-                if(i!=len-1){
+                if(i != len-1){
                     temp.next = queue.peek();
                 }
             }
