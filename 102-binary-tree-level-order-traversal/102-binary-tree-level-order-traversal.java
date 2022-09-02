@@ -14,29 +14,22 @@
  * }
  */
 class Solution {
+    public List<List<Integer>> res = new ArrayList<>();
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        recursion(root,0);
+        return res;
+    }
+    private void recursion(TreeNode root, int deep){
         if(root == null){
-            return res;
+            return;
         }
-        queue.offer(root);
-        while(!queue.isEmpty()){
-            int len = queue.size();
+        deep++;
+        if(res.size() < deep){
             List<Integer> item = new ArrayList<>();
-            while(len > 0){
-                TreeNode temp = queue.poll();
-                item.add(temp.val);
-                if(temp.left!=null){
-                    queue.offer(temp.left);
-                }
-                if(temp.right!=null){
-                    queue.offer(temp.right);
-                }
-                len--;
-            }
             res.add(item);
         }
-        return res;
+        res.get(deep - 1).add(root.val);
+        recursion(root.left,deep);
+        recursion(root.right,deep);
     }
 }
