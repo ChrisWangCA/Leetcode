@@ -27,11 +27,11 @@ class Solution {
         queue.offer(root);
         while(!queue.isEmpty()){
             int len = queue.size();
-            List<Integer> list = new ArrayList<>();
+            List<Integer> item = new ArrayList<>();
             while(len > 0){
-                Node node = queue.poll();
-                list.add(node.val);
-                List<Node> children = node.children;
+                Node temp = queue.poll();
+                item.add(temp.val);
+                List<Node> children = temp.children;
                 for(Node child:children){
                     if(child!=null){
                         queue.offer(child);
@@ -39,7 +39,7 @@ class Solution {
                 }
                 len--;
             }
-            res.add(list);
+            res.add(item);
         }
         return res;
     }
