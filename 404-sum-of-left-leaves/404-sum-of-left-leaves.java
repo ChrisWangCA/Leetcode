@@ -20,8 +20,6 @@ class Solution {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
-            int len = queue.size();
-            for(int i=0;i<len;i++){
                 TreeNode temp = queue.poll();
                 if(temp.left != null){
                     queue.offer(temp.left);
@@ -31,7 +29,6 @@ class Solution {
                 }
                 if(temp.right != null){
                     queue.offer(temp.right);
-                }
             }
         }
         return sum;
