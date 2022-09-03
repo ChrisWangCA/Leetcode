@@ -27,19 +27,18 @@ class Solution {
         queue.offer(root);
         while(!queue.isEmpty()){
             int len = queue.size();
-            List<Integer> item = new ArrayList<>();
-            while(len > 0){
+            List<Integer> list = new ArrayList<>();
+            for(int i=0;i<len;i++){
                 Node temp = queue.poll();
-                item.add(temp.val);
+                list.add(temp.val);
                 List<Node> children = temp.children;
                 for(Node child:children){
                     if(child!=null){
                         queue.offer(child);
                     }
                 }
-                len--;
             }
-            res.add(item);
+            res.add(list);
         }
         return res;
     }
