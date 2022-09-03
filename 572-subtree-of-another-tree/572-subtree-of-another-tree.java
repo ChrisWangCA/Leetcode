@@ -23,13 +23,13 @@ class Solution {
         }
         return isSubtree(root.left,subRoot) || isSubtree(root.right,subRoot);
     }
-    private boolean isSame(TreeNode a,TreeNode b){
-        if(a == null && b == null){
+    private boolean isSame(TreeNode root,TreeNode subRoot){
+        if(root == null && subRoot == null){
             return true;
         }
-        if(a == null || b == null || a.val != b.val){
+        if(root == null || subRoot == null || root.val != subRoot.val){
             return false;
         }
-        return isSame(a.left,b.left) && isSame(a.right,b.right);
+        return isSame(root.left,subRoot.left) && isSame(root.right,subRoot.right);
     }
 }
