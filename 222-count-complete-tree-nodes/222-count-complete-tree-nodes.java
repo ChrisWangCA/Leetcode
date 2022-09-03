@@ -15,26 +15,7 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        if (root == null){
-            return 0;
-        }
-        int count = 0;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()){
-            int len = queue.size();
-            while (len > 0){
-                TreeNode temp = queue.poll();
-                if (temp.left!=null){
-                    queue.offer(temp.left);
-                }
-                if (temp.right!=null){
-                    queue.offer(temp.right);
-                }
-                count++;
-                len--;
-            }
-        }
-        return count ;
+        if(root == null) return 0;
+        return countNodes(root.left) + countNodes(root.right) + 1;
     }
 }
