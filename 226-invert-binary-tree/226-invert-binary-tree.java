@@ -23,7 +23,7 @@ class Solution {
         swap(root);
         return root;
     }
-    public void swap(TreeNode root){
+    private void swap(TreeNode root){
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
