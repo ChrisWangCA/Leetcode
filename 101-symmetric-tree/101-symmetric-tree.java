@@ -15,23 +15,17 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        Deque<TreeNode> queue = new LinkedList<>();
-        queue.offerFirst(root.left);
-        queue.offerLast(root.right);
-        while(!queue.isEmpty()){
-            TreeNode left = queue.pollFirst();
-            TreeNode right = queue.pollLast();
-            if(left == null && right == null){
-                continue;
-            }
-            if(left == null || right == null || left.val != right.val){
-                return false;
-            }
-            queue.offerFirst(left.left);
-            queue.offerFirst(left.right);
-            queue.offerLast(right.right);
-            queue.offerLast(right.left);
+        return compare(root.left,root.right);
+    }
+    private boolean compare (TreeNode left,TreeNode right){
+        if(left == null && right == null){
+            return true;
         }
-        return true;
+        if(left == null || right == null || left.val != right.val){
+            return false;
+        }
+        boolean outside = compare(left.left,right.right);
+        boolean inside = compare(left.right,right.left);
+        return outside && inside;
     }
 }
