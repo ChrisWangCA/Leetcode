@@ -7,9 +7,8 @@ class Solution {
             if(map.containsKey(temp)){
                 res[1] = i;
                 res[0] = map.get(temp);
-            }else{
-                map.put(nums[i],i);
             }
+            map.put(nums[i],i);
         }
         return res;
     }
