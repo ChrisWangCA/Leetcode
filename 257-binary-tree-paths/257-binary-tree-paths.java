@@ -18,10 +18,10 @@ class Solution {
         List<String> res = new ArrayList<>();
         if(root == null) return res;
         List<Integer> path = new ArrayList<>();
-        travelsal(root,path,res);
+        path(root,res,path);
         return res;
     }
-    private void travelsal(TreeNode root,List<Integer> path,List<String> res){
+    private void path(TreeNode root,List<String> res,List<Integer> path){
         path.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
@@ -33,11 +33,11 @@ class Solution {
             return;
         }
         if(root.left!=null){
-            travelsal(root.left,path,res);
+            path(root.left,res,path);
             path.remove(path.size()-1);
         }
         if(root.right!=null){
-            travelsal(root.right,path,res);
+            path(root.right,res,path);
             path.remove(path.size()-1);
         }
     }
