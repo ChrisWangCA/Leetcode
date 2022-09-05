@@ -16,28 +16,25 @@
 class Solution {
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> res = new ArrayList<>();
+        if(root == null) return res;
         Queue<TreeNode> queue = new LinkedList<>();
-        if(root == null){
-            return res;
-        }
         queue.offer(root);
         while(!queue.isEmpty()){
             int len = queue.size();
-            double sum = 0;
             int count = 0;
-            while(len > 0){
+            double num = 0;
+            for(int i=0;i<len;i++){
                 TreeNode temp = queue.poll();
-                if(temp.left!=null){
+                count ++;
+                num += temp.val;
+                if(temp.left != null){
                     queue.offer(temp.left);
                 }
-                if(temp.right!=null){
+                if(temp.right != null){
                     queue.offer(temp.right);
                 }
-                sum += temp.val;
-                count++;
-                len--;
             }
-            res.add(sum / count);
+            res.add(num / count);
         }
         return res;
     }
