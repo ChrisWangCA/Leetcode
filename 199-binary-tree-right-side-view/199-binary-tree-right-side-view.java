@@ -17,14 +17,12 @@ class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
-        if(root == null){
-            return res;
-        }
+        if(root == null) return res;
         queue.offer(root);
         while(!queue.isEmpty()){
             int len = queue.size();
             while(len > 0){
-                len--;
+                len --;
                 TreeNode temp = queue.poll();
                 if(temp.left!=null){
                     queue.offer(temp.left);
