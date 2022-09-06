@@ -19,9 +19,7 @@ class Solution {
     }
     private TreeNode traversal(int[] nums,int leftIndex,int rightIndex){
         if(rightIndex - leftIndex < 1) return null;
-        if(rightIndex - leftIndex == 1){
-            return new TreeNode(nums[leftIndex]);
-        }
+        if(rightIndex - leftIndex == 1) return new TreeNode(nums[leftIndex]);
         int maxValue = nums[leftIndex];
         int maxIndex = leftIndex;
         for(int i=leftIndex+1;i<rightIndex;i++){
