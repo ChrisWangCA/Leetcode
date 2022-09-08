@@ -15,13 +15,19 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        return compare(root.left,root.right);
-    }
-    private boolean compare(TreeNode left,TreeNode right){
-        if(left == null && right == null) return true;
-        if(left == null || right == null || left.val != right.val) return false;
-        boolean outside = compare(left.left,right.right);
-        boolean inside = compare(left.right,right.left);
-        return outside && inside;
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offerFirst(root.left);
+        queue.offerLast(root.right);
+        while(!queue.isEmpty()){
+            TreeNode temp1 = queue.pollFirst();
+            TreeNode temp2 = queue.pollLast();
+            if(temp1 == null && temp2 == null) continue;
+            if(temp1 == null || temp2 == null || temp1.val != temp2.val) return false;
+            queue.offerFirst(temp1.left);
+            queue.offerFirst(temp1.right);
+            queue.offerLast(temp2.right);
+            queue.offerLast(temp2.left);
+        }
+        return true;
     }
 }
