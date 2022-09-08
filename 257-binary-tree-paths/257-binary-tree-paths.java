@@ -18,10 +18,10 @@ class Solution {
         List<String> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
         if(root == null) return res;
-        traversal(root,res,path);
+        recursive(root,res,path);
         return res;
     }
-    private void traversal(TreeNode root,List<String> res,List<Integer> path){
+    private void recursive(TreeNode root,List<String> res,List<Integer> path){
         path.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
@@ -32,12 +32,12 @@ class Solution {
             res.add(sb.toString());
             return;
         }
-        if(root.left != null){
-            traversal(root.left,res,path);
+        if(root.left!=null){
+            recursive(root.left,res,path);
             path.remove(path.size()-1);
         }
-        if(root.right != null){
-            traversal(root.right,res,path);
+        if(root.right!=null){
+            recursive(root.right,res,path);
             path.remove(path.size()-1);
         }
     }
