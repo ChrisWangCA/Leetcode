@@ -14,19 +14,20 @@
  * }
  */
 class Solution {
-    List<Integer> res = new ArrayList<>();
+    int res = Integer.MAX_VALUE;
+    TreeNode pre;
     public int getMinimumDifference(TreeNode root) {
-        getArray(root);
-        int result = Integer.MAX_VALUE;
-        for(int i=1;i<res.size();i++){
-            result = Math.min(result,res.get(i) - res.get(i-1));
-        }
-        return result;
+        if(root == null) return 0;
+        traversal(root);
+        return res;
     }
-    private void getArray(TreeNode root){
+    private void traversal(TreeNode root){
         if(root == null) return;
-        getArray(root.left);
-        res.add(root.val);
-        getArray(root.right);
+        traversal(root.left);
+        if(pre!=null){
+            res = Math.min(res,root.val - pre.val);
+        }
+        pre = root;
+        traversal(root.right);
     }
 }
