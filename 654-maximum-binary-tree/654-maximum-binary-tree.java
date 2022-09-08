@@ -15,9 +15,9 @@
  */
 class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return traversal(nums,0,nums.length);
+        return recursive(nums,0,nums.length);
     }
-    private TreeNode traversal(int[] nums,int leftIndex,int rightIndex){
+    private TreeNode recursive(int[] nums,int leftIndex,int rightIndex){
         if(rightIndex - leftIndex < 1) return null;
         if(rightIndex - leftIndex == 1) return new TreeNode(nums[leftIndex]);
         int maxValue = nums[leftIndex];
@@ -29,8 +29,8 @@ class Solution {
             }
         }
         TreeNode root = new TreeNode(maxValue);
-        root.left = traversal(nums,leftIndex,maxIndex);
-        root.right = traversal(nums,maxIndex+1,rightIndex);
+        root.left = recursive(nums,leftIndex,maxIndex);
+        root.right = recursive(nums,maxIndex+1,rightIndex);
         return root;
     }
 }
