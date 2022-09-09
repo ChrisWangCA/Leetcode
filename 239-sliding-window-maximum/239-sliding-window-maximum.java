@@ -17,9 +17,7 @@ class Solution {
         }
     }
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums.length == 1){
-            return nums;
-        }
+        if(nums.length == 1) return nums;
         int len = nums.length - k + 1;
         int[] res = new int[len];
         int index = 0;
@@ -29,7 +27,7 @@ class Solution {
         }
         res[index++] = queue.max();
         for(int i=k;i<nums.length;i++){
-            queue.pop(nums[i-k]);
+            queue.pop(nums[i - k]);
             queue.push(nums[i]);
             res[index++] = queue.max();
         }
