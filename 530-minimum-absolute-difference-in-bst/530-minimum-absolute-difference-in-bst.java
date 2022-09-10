@@ -18,16 +18,16 @@ class Solution {
     TreeNode pre;
     public int getMinimumDifference(TreeNode root) {
         if(root == null) return 0;
-        getMinimum(root);
+        traversal(root);
         return res;
     }
-    private void getMinimum(TreeNode root){
+    private void traversal(TreeNode root){
         if(root == null) return;
-        getMinimum(root.left);
+        traversal(root.left);
         if(pre!=null){
             res = Math.min(res,root.val - pre.val);
         }
         pre = root;
-        getMinimum(root.right);
+        traversal(root.right);
     }
 }
