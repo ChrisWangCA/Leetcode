@@ -15,8 +15,8 @@
  */
 class Solution {
     ArrayList<Integer> list = new ArrayList<>();
-    int maxCount = 0;
     int count = 0;
+    int maxCount = 0;
     TreeNode pre = null;
     public int[] findMode(TreeNode root) {
         traversal(root);
@@ -29,18 +29,18 @@ class Solution {
     private void traversal(TreeNode root){
         if(root == null) return;
         traversal(root.left);
-        int value = root.val;
-        if(pre == null || value != pre.val){
+        int val = root.val;
+        if(pre == null || val != pre.val){
             count = 1;
         }else{
             count ++;
         }
         if(count > maxCount){
             list.clear();
-            list.add(value);
+            list.add(val);
             maxCount = count;
         }else if(count == maxCount){
-            list.add(value);
+            list.add(val);
         }
         pre = root;
         traversal(root.right);
