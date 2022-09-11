@@ -15,20 +15,20 @@
  */
 class Solution {
     ArrayList<Integer> list = new ArrayList<>();
-    int count = 0;
     int maxCount = 0;
+    int count = 0;
     TreeNode pre = null;
     public int[] findMode(TreeNode root) {
-        traversal(root);
+        find(root);
         int[] res = new int[list.size()];
         for(int i=0;i<res.length;i++){
             res[i] = list.get(i);
         }
         return res;
     }
-    private void traversal(TreeNode root){
+    private void find(TreeNode root){
         if(root == null) return;
-        traversal(root.left);
+        find(root.left);
         int val = root.val;
         if(pre == null || val != pre.val){
             count = 1;
@@ -43,6 +43,6 @@ class Solution {
             list.add(val);
         }
         pre = root;
-        traversal(root.right);
+        find(root.right);
     }
 }
