@@ -16,16 +16,14 @@
 class Solution {
     long min = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
-        return traversal(root);
+        return recursive(root);
     }
-    private boolean traversal(TreeNode root){
+    private boolean recursive(TreeNode root){
         if(root == null) return true;
-        boolean left = traversal(root.left);
-        if(root.val <= min){
-            return false;
-        }
+        boolean left = recursive(root.left);
+        if(root.val<=min) return false;
         min = root.val;
-        boolean right = traversal(root.right);
+        boolean right = recursive(root.right);
         return left && right;
     }
 }
