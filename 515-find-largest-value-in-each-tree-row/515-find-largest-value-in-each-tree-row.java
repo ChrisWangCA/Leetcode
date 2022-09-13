@@ -24,8 +24,12 @@ class Solution {
             int max = Integer.MIN_VALUE;
             for(int i=0;i<len;i++){
                 TreeNode temp = queue.poll();
-                if(temp.left != null) queue.offer(temp.left);
-                if(temp.right !=null) queue.offer(temp.right);
+                if(temp.left!=null){
+                    queue.offer(temp.left);
+                }
+                if(temp.right!=null){
+                    queue.offer(temp.right);
+                }
                 max = Math.max(max,temp.val);
             }
             res.add(max);
