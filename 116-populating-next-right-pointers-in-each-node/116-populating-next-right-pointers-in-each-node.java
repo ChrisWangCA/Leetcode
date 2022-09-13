@@ -30,12 +30,16 @@ class Solution {
             int len = queue.size();
             for(int i=0;i<len;i++){
                 Node temp = queue.poll();
-                if(temp.left!=null) queue.offer(temp.left);
-                if(temp.right!=null) queue.offer(temp.right);
+                if(temp.left!=null){
+                    queue.offer(temp.left);
+                }
+                if(temp.right!=null){
+                    queue.offer(temp.right);
+                }
                 if(i != len-1){
                     temp.next = queue.peek();
                 }
-            }  
+            }
         }
         return root;
     }
