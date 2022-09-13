@@ -22,12 +22,17 @@ class Solution {
         while(!queue.isEmpty()){
             int len = queue.size();
             count++;
-            while(len > 0){
-                TreeNode temp=queue.poll();
-                if(temp.left!=null) queue.offer(temp.left);
-                if(temp.right!=null) queue.offer(temp.right);
-                if(temp.left==null && temp.right == null) return count;
-                len--;
+            for(int i=0;i<len;i++){
+                TreeNode temp = queue.poll();
+                if(temp.left!=null){
+                    queue.offer(temp.left);
+                }
+                if(temp.right!=null){
+                    queue.offer(temp.right);
+                }
+                if(temp.left==null && temp.right==null){
+                    return count;
+                }
             }
         }
         return count;
