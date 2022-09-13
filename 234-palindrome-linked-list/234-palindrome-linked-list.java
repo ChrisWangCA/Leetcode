@@ -15,14 +15,13 @@ class Solution {
         ListNode end = reverse(mid.next);
         ListNode p1 = head;
         ListNode p2 = end;
-        boolean result = true;
-        while(result && p2!=null){
-            if(p1.val!=p2.val) result = false;
+        while(p2!=null){
+            if(p1.val!=p2.val) return false;
             p1 = p1.next;
             p2 = p2.next;
         }
         mid.next = reverse(end);
-        return result;
+        return true;
         
     }
     private ListNode reverse(ListNode head){
