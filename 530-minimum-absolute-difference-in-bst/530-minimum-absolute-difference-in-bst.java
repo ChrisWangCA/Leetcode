@@ -14,20 +14,20 @@
  * }
  */
 class Solution {
-    int res = Integer.MAX_VALUE;
+    int min = Integer.MAX_VALUE;
     TreeNode pre;
     public int getMinimumDifference(TreeNode root) {
         if(root == null) return 0;
-        getMin(root);
-        return res;
+        traversal(root);
+        return min;
     }
-    private void getMin(TreeNode root){
+    private void traversal(TreeNode root){
         if(root == null) return;
-        getMin(root.left);
-        if(pre!=null){
-            res = Math.min(res,root.val - pre.val);
+        traversal(root.left);
+        if(pre != null){
+            min = Math.min(min,root.val - pre.val);
         }
         pre = root;
-        getMin(root.right);
+        traversal(root.right);
     }
 }
