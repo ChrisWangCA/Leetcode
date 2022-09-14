@@ -21,11 +21,11 @@ class Solution {
     public int maxDepth(Node root) {
         int depth = 0;
         if(root == null) return depth;
-        if(root.children != null){
+        if(root.children!=null){
             for(Node child:root.children){
                 depth = Math.max(depth,maxDepth(child));
             }
         }
-        return depth + 1;
+        return depth+1;
     }
 }
