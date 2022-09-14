@@ -14,10 +14,10 @@
  * }
  */
 class Solution {
-    ArrayList<Integer> list = new ArrayList<>();
-    int maxCount = 0;
     int count = 0;
+    int maxCount = 0;
     TreeNode pre = null;
+    ArrayList<Integer> list = new ArrayList<>();
     public int[] findMode(TreeNode root) {
         find(root);
         int[] res = new int[list.size()];
