@@ -29,7 +29,7 @@ class Solution {
                 if(temp.right!=null){
                     queue.offer(temp.right);
                 }
-                if(i == 0){
+                if(i==0){
                     res = temp.val;
                 }
             }
