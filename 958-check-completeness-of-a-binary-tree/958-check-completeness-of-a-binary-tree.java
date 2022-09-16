@@ -15,14 +15,14 @@
  */
 class Solution {
     public boolean isCompleteTree(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
         boolean leaf = false;
         if(root == null) return leaf;
-        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
             TreeNode temp = queue.poll();
-            if(leaf && !(temp.left==null && temp.right==null) || 
-              (temp.left==null && temp.right!=null)) return false;
+            if(leaf && !(temp.left==null && temp.right==null) ||
+              (temp.left == null && temp.right != null)) return false;
             if(temp.left!=null){
                 queue.offer(temp.left);
             }
