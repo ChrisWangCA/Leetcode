@@ -21,7 +21,7 @@ class Solution {
         queue.offer(root);
         while(!queue.isEmpty()){
             TreeNode temp = queue.poll();
-            if(leaf && (temp.left!=null || temp.right!=null) || 
+            if(leaf && !(temp.left==null && temp.right==null) || 
               (temp.left==null && temp.right!=null)) return false;
             if(temp.left!=null){
                 queue.offer(temp.left);
