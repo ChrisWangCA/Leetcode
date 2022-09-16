@@ -11,8 +11,8 @@
 class Solution {
     public ListNode partition(ListNode head, int x) {
         ListNode small = new ListNode(0);
-        ListNode large = new ListNode(0);
         ListNode smallHead = small;
+        ListNode large = new ListNode(0);
         ListNode largeHead = large;
         ListNode cur = head;
         while(cur!=null){
@@ -25,8 +25,8 @@ class Solution {
             }
             cur = cur.next;
         }
-            large.next = null;
-            small.next = largeHead.next;
-            return smallHead.next;
+        large.next = null;
+        small.next = largeHead.next;
+        return smallHead.next;
     }
 }
