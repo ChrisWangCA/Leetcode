@@ -1,7 +1,7 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        Set<Integer> set = new HashSet<>();
         int[] res = new int[1001];
+        Set<Integer> set = new HashSet<>();
         for(int i:nums1){
             res[i] = 1;
         }
