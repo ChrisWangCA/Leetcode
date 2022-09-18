@@ -11,20 +11,20 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
         ListNode mid = getMid(head);
-        ListNode after = reverse(mid.next);
-        ListNode p0 = head;
-        ListNode p1 = after;
-        while(p1!=null){
-            if(p0.val!=p1.val) return false;
-            p0 = p0.next;
+        ListNode right = reverse(mid.next);
+        ListNode p1 = head;
+        ListNode p2 = right;
+        while(p2!=null){
+            if(p1.val != p2.val) return false;
             p1 = p1.next;
+            p2 = p2.next;
         }
-        mid.next = reverse(after);
+        mid.next = reverse(right);
         return true;
     }
     private ListNode reverse(ListNode head){
-        ListNode cur = head;
         ListNode pre = null;
+        ListNode cur = head;
         while(cur!=null){
             ListNode temp = cur.next;
             cur.next = pre;
