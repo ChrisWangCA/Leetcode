@@ -1,0 +1,18 @@
+public class PaperFolding {
+
+    public static void fold(int N){
+        paperFolding(1,N,true);
+    }
+
+    public static void paperFolding(int i,int N,boolean down){
+        if (i>N) return;
+        paperFolding(i+1,N,true);
+        System.out.print(down?"concave ":"convex ");
+        paperFolding(i+1,N,false);
+    }
+
+    public static void main(String[] args) {
+        fold(3);
+    }
+
+}
