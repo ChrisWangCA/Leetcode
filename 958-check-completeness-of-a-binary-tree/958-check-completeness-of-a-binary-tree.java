@@ -20,16 +20,18 @@ class Solution {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
-                TreeNode temp = queue.poll();
-                if(flag && !(temp.left==null && temp.right==null) ||
-                  (temp.left==null && temp.right!=null)) return false;
-                if(temp.left!=null){
-                    queue.offer(temp.left);
-                }
-                if(temp.right!=null){
-                    queue.offer(temp.right);
-                }
-                if(temp.left==null || temp.right==null) flag = true;
+            TreeNode temp = queue.poll();
+            if(flag && !(temp.left == null && temp.right == null) || 
+              (temp.left == null && temp.right != null)) return false;
+            if(temp.left!=null){
+                queue.offer(temp.left);
+            }
+            if(temp.right!=null){
+                queue.offer(temp.right);
+            }
+            if(temp.left == null || temp.right == null){
+                flag = true;
+            }
         }
         return true;
     }
