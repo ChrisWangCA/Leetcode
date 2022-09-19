@@ -20,18 +20,16 @@ public class Codec {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        String[] vals = data.split("_");
+        String[] arr = data.split("_");
         Queue<String> queue = new LinkedList<>();
-        for(int i=0;i<vals.length;i++){
-            queue.add(vals[i]);
-        }
+        for(int i=0;i<arr.length;i++) queue.offer(arr[i]);
         return deserialize(queue);
     }
     
     public TreeNode deserialize(Queue<String> queue){
-        String val = queue.poll();
-        if(val.equals("#")) return null;
-        TreeNode root = new TreeNode(Integer.valueOf(val));
+        String res = queue.poll();
+        if(res.equals("#")) return null;
+        TreeNode root = new TreeNode(Integer.valueOf(res));
         root.left = deserialize(queue);
         root.right = deserialize(queue);
         return root;
