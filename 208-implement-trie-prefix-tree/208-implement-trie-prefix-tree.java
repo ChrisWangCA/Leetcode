@@ -58,6 +58,23 @@ class Trie {
         }
         return true;
     }
+    
+        public void delete(String word){
+        if(search(word)){
+            char[] chs = word.toCharArray();
+            TrieNode node = root;
+            int index = 0;
+            for(int i=0;i<chs.length;i++){
+                index = chs[i] - 'a';
+                if(--node.nexts[index].pass == 0){
+                    node.nexts[index] = null;
+                    return;
+                }
+                node = node.nexts[index];
+            }
+            node.end--;
+        }
+    }
 }
 
 /**
