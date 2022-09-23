@@ -21,7 +21,8 @@ class MedianFinder {
     }
     
     public double findMedian() {
-        return smallHeap.size() > bigHeap.size() ? smallHeap.peek():(smallHeap.peek()+bigHeap.peek()) / 2.0;
+        return smallHeap.size() > bigHeap.size() ? smallHeap.peek() :
+        (smallHeap.peek() + bigHeap.peek()) / 2.0;
     }
 }
 
