@@ -8,7 +8,7 @@ class Solution {
             res[c - 'a'] -= 1;
         }
         for(int i:res){
-            if(i!=0){
+            if(i != 0){
                 return false;
             }
         }
