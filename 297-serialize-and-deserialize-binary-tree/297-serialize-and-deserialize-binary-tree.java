@@ -22,14 +22,16 @@ public class Codec {
     public TreeNode deserialize(String data) {
         String[] arr = data.split("_");
         Queue<String> queue = new LinkedList<>();
-        for(int i=0;i!=arr.length;i++) queue.offer(arr[i]);
+        for(int i=0;i<arr.length;i++){
+            queue.offer(arr[i]);
+        }
         return deserialize(queue);
     }
     
-    private TreeNode deserialize(Queue<String> queue){
-        String res = queue.poll();
-        if(res.equals("#")) return null;
-        TreeNode root = new TreeNode(Integer.valueOf(res));
+    public TreeNode deserialize(Queue<String> queue){
+        String s = queue.poll();
+        if(s.equals("#")) return null;
+        TreeNode root = new TreeNode(Integer.valueOf(s));
         root.left = deserialize(queue);
         root.right = deserialize(queue);
         return root;
