@@ -22,7 +22,8 @@ class Solution {
         while(!queue.isEmpty()){
             int len = queue.size();
             int max = Integer.MIN_VALUE;
-            for(int i=0;i<len;i++){
+            while(len > 0){
+                len --;
                 TreeNode temp = queue.poll();
                 if(temp.left!=null){
                     queue.offer(temp.left);
