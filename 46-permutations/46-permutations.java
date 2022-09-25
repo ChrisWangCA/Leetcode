@@ -1,27 +1,20 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        if(nums == null || nums.length < 1) return res;
-        process(nums,0,res);
+        List<Integer> list = new ArrayList<>();
+        dfs(nums,res,list);
         return res;
     }
-
-    public static void process(int[] nums,int i,List<List<Integer>> res){
-        if(i == nums.length){
-            res.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+    public void dfs(int[] nums,List<List<Integer>> res,List<Integer> list){
+        if(list.size() == nums.length){
+            res.add(new ArrayList<>(list));
+            return;
         }
-
-        for(int j=i;j<nums.length;j++){
-            swap(nums,i,j);
-            process(nums,i+1,res);
-            swap(nums,i,j);
+        for(int i=0;i<nums.length;i++){
+            if(list.contains(nums[i])) continue;
+            list.add(nums[i]);
+            dfs(nums,res,list);
+            list.remove(list.size()-1);
         }
     }
-
-    public static void swap(int[] nums,int i,int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-
 }
