@@ -6,15 +6,9 @@ class Solution {
         return process(s.toCharArray(),0,memo);
     }
     public int process(char[] chs,int i,int[] memo){
-        if(i == chs.length){
-            return 1;
-        }
-        if(chs[i] == '0'){
-            return 0;
-        }
-        if(memo[i] != -1){
-            return memo[i];
-        }
+        if(i == chs.length) return 1;
+        if(chs[i] == '0') return 0;
+        if(memo[i] != -1) return memo[i];
         if(chs[i] == '1'){
             int res = process(chs,i+1,memo);
             if(i+1 < chs.length){
@@ -31,7 +25,7 @@ class Solution {
             memo[i] = res;
             return res;
         }
-        int res =  process(chs,i+1,memo);
+        int res = process(chs,i+1,memo);
         memo[i] = res;
         return res;
     }
