@@ -19,13 +19,13 @@ class Node {
 
 class Solution {
     public int maxDepth(Node root) {
-        int depth = 0;
-        if(root == null) return depth;
+        int max = 0;
+        if(root == null) return max;
         if(root.children!=null){
             for(Node child:root.children){
-                depth = Math.max(depth,maxDepth(child));
+                max = Math.max(max,maxDepth(child));
             }
         }
-        return depth+1;
+        return max+1;
     }
 }
