@@ -6,9 +6,9 @@ class Solution {
         int all = 1;
         for(int i=0;i<chs.length;i++){
             int newCount = all;
-            all = ((all+newCount) % m - record[chs[i]-'a'] % m + m) % m;
+            all = ((all+newCount) % m - record[chs[i]-'a'] % m + m) % m;  
             record[chs[i] - 'a'] = newCount;
         }
-        return all-1;
+        return all - 1;
     }
 }
