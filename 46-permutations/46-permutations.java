@@ -1,7 +1,7 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
         process(nums,res,list);
         return res;
     }
