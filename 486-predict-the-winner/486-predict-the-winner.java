@@ -4,7 +4,7 @@ class Solution {
     }
     
     public int play(int[] nums,int left,int right){
-        if(left > right) return 0;
+        if(left>right) return 0;
         int planA = nums[left] - play(nums,left+1,right);
         int planB = nums[right] - play(nums,left,right-1);
         return Math.max(planA,planB);
