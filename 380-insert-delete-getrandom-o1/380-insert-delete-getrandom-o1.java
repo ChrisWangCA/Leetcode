@@ -1,19 +1,18 @@
 class RandomizedSet {
-    
-    HashMap<Integer,Integer> keyIndexMap;
-    HashMap<Integer,Integer> indexKeyMap;
+    HashMap<Integer,Integer> keyToIndex;
+    HashMap<Integer,Integer> indexToKey;
     int size;
-    
+
     public RandomizedSet() {
-        this.keyIndexMap = new HashMap<>();
-        this.indexKeyMap = new HashMap<>();
-        this.size = 0; 
+        keyToIndex = new HashMap<>();
+        indexToKey = new HashMap<>();
+        this.size = 0;
     }
     
     public boolean insert(int val) {
-        if(!keyIndexMap.containsKey(val)){
-            keyIndexMap.put(val,size);
-            indexKeyMap.put(size++,val);
+        if(!keyToIndex.containsKey(val)){
+            keyToIndex.put(val,size);
+            indexToKey.put(size++,val);
             return true;
         }else{
             return false;
@@ -21,14 +20,14 @@ class RandomizedSet {
     }
     
     public boolean remove(int val) {
-        if(keyIndexMap.containsKey(val)){
+        if(keyToIndex.containsKey(val)){
             int lastIndex = --size;
-            int lastKey = indexKeyMap.get(lastIndex);
-            int deleteIndex = keyIndexMap.get(val);
-            keyIndexMap.put(lastKey,deleteIndex);
-            indexKeyMap.put(deleteIndex,lastKey);
-            keyIndexMap.remove(val);
-            indexKeyMap.remove(lastIndex);
+            int lastKey = indexToKey.get(lastIndex);
+            int deleteIndex = keyToIndex.get(val);
+            keyToIndex.put(lastKey,deleteIndex);
+            indexToKey.put(deleteIndex,lastKey);
+            keyToIndex.remove(val);
+            indexToKey.remove(lastIndex);
             return true;
         }else{
             return false;
@@ -37,8 +36,8 @@ class RandomizedSet {
     
     public int getRandom() {
         if(size == 0) return 0;
-        int randomIndex = (int)(Math.random() * size);
-        return indexKeyMap.get(randomIndex);
+        int random = (int)(Math.random() * size);
+        return indexToKey.get(random);
     }
 }
 
