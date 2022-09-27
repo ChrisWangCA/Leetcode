@@ -15,7 +15,7 @@ class Node {
 
 class Solution {
     public Node copyRandomList(Node head) {
-        if(head == null) return null;
+        if(head == null) return head;
         Node cur = head;
         Node next = null;
         while(cur!=null){
@@ -38,7 +38,7 @@ class Solution {
             next = cur.next.next;
             copy = cur.next;
             cur.next = next;
-            copy.next = next != null ? next.next:null;
+            copy.next = next != null ? next.next : null;
             cur = next;
         }
         return res;
