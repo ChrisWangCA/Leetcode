@@ -1,10 +1,11 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<Integer> list = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         process(nums,res,list);
         return res;
     }
+    
     public void process(int[] nums,List<List<Integer>> res,List<Integer> list){
         if(list.size() == nums.length){
             res.add(new ArrayList<>(list));
