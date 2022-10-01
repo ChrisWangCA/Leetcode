@@ -1,50 +1,51 @@
 class Solution {
     public double[] medianSlidingWindow(int[] nums, int k) {
-        int n = nums.length;
-        int cur = n - k + 1;
-        double[] res = new double[cur];
-        PriorityQueue<Integer> left = new PriorityQueue<>((o1, o2)->o2.compareTo(o1));
-        PriorityQueue<Integer> right = new PriorityQueue<>();
+        int N = nums.length;
+        int len = N - k + 1;
+        double[] res = new double[len];
+        PriorityQueue<Integer> bigHeap = new PriorityQueue<>((o1,o2)->o2.compareTo(o1));
+        PriorityQueue<Integer> smallHeap = new PriorityQueue<>();
         for(int i=0;i<k;i++){
-            right.add(nums[i]);
+            smallHeap.add(nums[i]);
         }
         for(int i=0;i<k/2;i++){
-            left.add(right.poll());
+            bigHeap.add(smallHeap.poll());
         }
-        res[0] = getMid(left,right);
-        for(int i=k;i<n;i++){
+        res[0] = getMid(bigHeap,smallHeap);
+        for(int i=k;i<N;i++){
             int add = nums[i];
             int del = nums[i-k];
-            if(add >= right.peek()){
-                right.add(add);
+            if(add >= smallHeap.peek()){
+                smallHeap.add(add);
             }else{
-                left.add(add);
+                bigHeap.add(add);
             }
-            if(del >= right.peek()){
-                right.remove(del);
+            if(del >= smallHeap.peek()){
+                smallHeap.remove(del);
             }else{
-                left.remove(del);
+                bigHeap.remove(del);
             }
-            adjust(left,right);
-            res[i-k+1] = getMid(left,right);
+            adjust(bigHeap,smallHeap);
+            res[i-k+1] = getMid(bigHeap,smallHeap);
         }
         return res;
     }
     
-    public void adjust(PriorityQueue<Integer> left, PriorityQueue<Integer> right){
-        while(left.size() > right.size()){
-            right.add(left.poll());
+    public void adjust(PriorityQueue<Integer> bigHeap,PriorityQueue<Integer> smallHeap){
+        while(bigHeap.size() > smallHeap.size()){
+            smallHeap.add(bigHeap.poll());
         }
-        while(right.size() - left.size() > 1){
-            left.add(right.poll());
+        while(smallHeap.size() - bigHeap.size() > 1){
+            bigHeap.add(smallHeap.poll());
         }
     }
     
-    public double getMid(PriorityQueue<Integer> left, PriorityQueue<Integer> right){
-        if(left.size() == right.size()){
-            return (left.peek() / 2.0) + (right.peek() / 2.0);
+    public double getMid(PriorityQueue<Integer> bigHeap,PriorityQueue<Integer> smallHeap){
+        if(bigHeap.size() == smallHeap.size()){
+            // return (bigHeap.peek()+smallHeap.peek()) / 2.0;
+            return (bigHeap.peek()/2.0)+(smallHeap.peek()/2.0);
         }else{
-            return right.peek() * 1.0;
+            return smallHeap.peek() * 1.0;
         }
     }
 }
