@@ -21,19 +21,19 @@ public class Codec {
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
         String[] arr = data.split("_");
-        Queue<String> queue = new LinkedList<>();
+        Deque<String> deque = new LinkedList<>();
         for(int i=0;i<arr.length;i++){
-            queue.offer(arr[i]);
+            deque.add(arr[i]);
         }
-        return deserialize(queue);
+        return deserialize(deque);
     }
     
-    public TreeNode deserialize(Queue<String> queue){
-        String s = queue.poll();
-        if(s.equals("#")) return null;
-        TreeNode root = new TreeNode(Integer.valueOf(s));
-        root.left = deserialize(queue);
-        root.right = deserialize(queue);
+    public TreeNode deserialize(Deque<String> deque){
+        String res = deque.poll();
+        if(res.equals("#")) return null;
+        TreeNode root = new TreeNode(Integer.valueOf(res));
+        root.left = deserialize(deque);
+        root.right = deserialize(deque);
         return root;
     }
 }
