@@ -14,12 +14,13 @@
  * }
  */
 class Solution {
+    
     public class Info{
         int maxDistance;
         int height;
-        Info(int maxDistance,int height){
-            this.maxDistance = maxDistance;
-            this.height = height;
+        public Info(int d,int h){
+            maxDistance = d;
+            height = h;
         }
     }
     
