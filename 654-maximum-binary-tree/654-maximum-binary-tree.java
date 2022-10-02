@@ -15,25 +15,23 @@
  */
 class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        if(nums == null) return null;
-        return getTree(nums,0,nums.length);
+        return process(nums,0,nums.length);
     }
-    private TreeNode getTree(int[] nums,int leftIndex,int rightIndex){
-        if(rightIndex - leftIndex < 1) return null;
-        if(rightIndex - leftIndex == 1){
-            return new TreeNode(nums[leftIndex]);
-        }
-        int maxValue = nums[leftIndex];
-        int maxIndex = leftIndex;
-        for(int i=leftIndex;i<rightIndex;i++){
-            if(nums[i] > maxValue){
-                maxValue = nums[i];
-                maxIndex = i;
+    
+    public TreeNode process(int[] nums,int left,int right){
+        if(right-left<1) return null;
+        if(right-left==1) return new TreeNode(nums[left]);
+        int maxIndex=left;
+        int maxVal=nums[left];
+        for(int i=left;i<right;i++){
+            if(maxVal<nums[i]){
+                maxVal=nums[i];
+                maxIndex=i;
             }
         }
-        TreeNode root = new TreeNode(maxValue);
-        root.left = getTree(nums,leftIndex,maxIndex);
-        root.right = getTree(nums,maxIndex+1,rightIndex);
+        TreeNode root = new TreeNode(maxVal);
+        root.left=process(nums,left,maxIndex);
+        root.right=process(nums,maxIndex+1,right);
         return root;
     }
 }
