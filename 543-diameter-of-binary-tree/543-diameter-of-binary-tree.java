@@ -18,8 +18,8 @@ class Solution {
     public class Info{
         int maxDistance;
         int height;
-        public Info(int d,int h){
-            maxDistance = d;
+        Info(int m,int h){
+            maxDistance = m;
             height = h;
         }
     }
