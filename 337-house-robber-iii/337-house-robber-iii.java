@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    
     public class Info{
         int no;
         int yes;
