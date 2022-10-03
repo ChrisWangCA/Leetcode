@@ -1,9 +1,9 @@
 class Solution {
     public int maxAreaOfIsland(int[][] grid) {
-        int res = 0;
-        if(grid == null || grid[0] == null) return res;
+        if(grid == null || grid[0] == null) return 0;
         int N = grid.length;
         int M = grid[0].length;
+        int res = 0;
         for(int i=0;i<N;i++){
             for(int j=0;j<M;j++){
                 if(grid[i][j] == 1){
