@@ -19,8 +19,8 @@ class Solution {
         int maxDistance;
         int height;
         Info(int m,int h){
-            maxDistance = m;
-            height = h;
+            this.maxDistance = m;
+            this.height = h;
         }
     }
     
@@ -36,7 +36,7 @@ class Solution {
         int res2 = right.maxDistance;
         int res3 = left.height + right.height;
         int maxDistance = Math.max(res3,Math.max(res1,res2));
-        int height = Math.max(left.height,right.height)+1;
+        int height = Math.max(left.height,right.height) + 1;
         return new Info(maxDistance,height);
     }
 }
