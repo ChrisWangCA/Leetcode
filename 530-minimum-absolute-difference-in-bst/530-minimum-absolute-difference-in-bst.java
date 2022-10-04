@@ -15,19 +15,19 @@
  */
 class Solution {
     int min = Integer.MAX_VALUE;
-    TreeNode pre;
+    TreeNode pre = null;
     public int getMinimumDifference(TreeNode root) {
         if(root == null) return 0;
-        traversal(root);
+        process(root);
         return min;
     }
-    private void traversal(TreeNode root){
+    public void process(TreeNode root){
         if(root == null) return;
-        traversal(root.left);
+        process(root.left);
         if(pre != null){
             min = Math.min(min,root.val - pre.val);
         }
         pre = root;
-        traversal(root.right);
+        process(root.right);
     }
 }
