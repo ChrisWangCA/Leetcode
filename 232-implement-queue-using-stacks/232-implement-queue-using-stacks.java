@@ -25,13 +25,12 @@ class MyQueue {
     }
     
     public void dump(){
-        if(!stackOut.isEmpty()){
-            return;
-        }
+        if(!stackOut.isEmpty()) return;
         while(!stackIn.isEmpty()){
             stackOut.push(stackIn.pop());
         }
     }
+    
 }
 
 /**
