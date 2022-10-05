@@ -1,7 +1,7 @@
 class Solution {
     public double[] medianSlidingWindow(int[] nums, int k) {
         int N = nums.length;
-        int len = N - k + 1;
+        int len = nums.length - k + 1;
         double[] res = new double[len];
         PriorityQueue<Integer> bigHeap = new PriorityQueue<>((o1,o2)->o2.compareTo(o1));
         PriorityQueue<Integer> smallHeap = new PriorityQueue<>();
@@ -42,8 +42,7 @@ class Solution {
     
     public double getMid(PriorityQueue<Integer> bigHeap,PriorityQueue<Integer> smallHeap){
         if(bigHeap.size() == smallHeap.size()){
-            // return (bigHeap.peek()+smallHeap.peek()) / 2.0;
-            return (bigHeap.peek()/2.0)+(smallHeap.peek()/2.0);
+            return (bigHeap.peek()/2.0) + (smallHeap.peek()/2.0);
         }else{
             return smallHeap.peek() * 1.0;
         }
