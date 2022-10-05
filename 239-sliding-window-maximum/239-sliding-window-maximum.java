@@ -7,15 +7,18 @@ class Solution {
                 queue.poll();
             }
         }
+        
         void add(int val){
             while(!queue.isEmpty() && val > queue.peekLast()){
                 queue.removeLast();
             }
             queue.add(val);
         }
+        
         int max(){
             return queue.peek();
         }
+        
     }
     
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -29,7 +32,7 @@ class Solution {
         }
         res[index++] = queue.max();
         for(int i=k;i<nums.length;i++){
-            queue.pop(nums[i - k]);
+            queue.pop(nums[i-k]);
             queue.add(nums[i]);
             res[index++] = queue.max();
         }
