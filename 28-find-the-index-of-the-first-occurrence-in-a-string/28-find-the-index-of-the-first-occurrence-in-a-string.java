@@ -1,7 +1,7 @@
 class Solution {
     public int strStr(String haystack, String needle) {
         if(needle.length() == 0) return 0;
-        if(haystack.length() < needle.length()) return -1;
+        if(needle.length() > haystack.length()) return -1;
         int index = 0;
         while(haystack!=null){
             if(haystack.startsWith(needle)){
