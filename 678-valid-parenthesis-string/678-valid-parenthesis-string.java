@@ -1,17 +1,17 @@
 class Solution {
     public boolean checkValidString(String s) {
         if(s == null) return false;
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> left = new Stack<>();
         Stack<Integer> star = new Stack<>();
         for(int i=0;i<s.length();i++){
             char c = s.charAt(i);
             if(c == '('){
-                stack.push(i);
+                left.push(i);
             }else if(c == '*'){
                 star.push(i);
             }else{
-                if(!stack.isEmpty()){
-                    stack.pop(); 
+                if(!left.isEmpty()){
+                    left.pop();
                 }else if(!star.isEmpty()){
                     star.pop();
                 }else{
@@ -19,11 +19,11 @@ class Solution {
                 }
             }
         }
-        while(!stack.isEmpty() && !star.isEmpty()){
-            int left = stack.pop();
-            int st = star.pop();
-            if(left > st) return false;
+        while(!left.isEmpty() && !star.isEmpty()){
+            int i = left.pop();
+            int j = star.pop();
+            if(i > j) return false;
         }
-        return stack.isEmpty();
+        return left.isEmpty();
     }
 }
