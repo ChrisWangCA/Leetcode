@@ -20,7 +20,7 @@ class Solution {
                 slow = fast;
             }
             fast = fast.next;
-        }
+        }   
         return dummy.next;
     }
 }
