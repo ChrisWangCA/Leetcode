@@ -9,7 +9,7 @@ class Solution {
             if(chs[i] == ')'){
                 pre = i - dp[i-1] - 1;
                 if(pre >= 0 && chs[pre] == '('){
-                    dp[i] = dp[i - 1] + 2 + (pre > 0 ? dp[pre-1]:0);
+                    dp[i] = dp[i-1] + 2 + (pre > 0 ? dp[pre-1]:0);
                 }
             }
             res = Math.max(res,dp[i]);
