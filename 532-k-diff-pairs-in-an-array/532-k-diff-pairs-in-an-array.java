@@ -6,12 +6,14 @@ class Solution {
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
         }
         if(k == 0){
-            for(int count:map.values()){
-                if(count > 1) res++;
+            for(Integer i:map.values()){
+                if(i > 1) res++;
             }
         }else{
-            for(int i:map.keySet()){
-                if(map.containsKey(i+k)) res++;
+            for(Integer i:map.keySet()){
+                if(map.containsKey(i+k)){
+                    res++;
+                }
             }
         }
         return res;
