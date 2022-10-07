@@ -4,7 +4,8 @@ class Solution {
         Arrays.fill(memo,-1);
         return process(s.toCharArray(),0,memo);
     }
-    public int process(char[] chs,int i,int[] memo) {
+    
+    public int process(char[] chs,int i,int[] memo){
         if(i == chs.length) return 1;
         if(chs[i] == '0') return 0;
         if(memo[i] != -1) return memo[i];
