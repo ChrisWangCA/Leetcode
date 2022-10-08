@@ -3,7 +3,7 @@ class Solution {
         Stack<Integer> stack = new Stack<>();
         for(String s:tokens){
             if(!s.equals("+") && !s.equals("-") && !s.equals("*") && !s.equals("/")){
-                stack.push(Integer.parseInt(s));
+                stack.push(Integer.valueOf(s));
             }else{
                 int num1 = stack.pop();
                 int num2 = stack.pop();
@@ -18,6 +18,6 @@ class Solution {
                 }
             }
         }
-        return stack.pop();
+        return stack.peek();
     }
 }
