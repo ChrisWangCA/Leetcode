@@ -9,7 +9,7 @@ class Solution {
     
     public void process(List<List<String>> res,int[] queen,int cur,int n){
         if(cur >= n){
-            List<String> list=new ArrayList<>();
+            List<String> list = new ArrayList<>();
             for(int i=0;i<n;i++){
                 char[] chs = new char[n];
                 Arrays.fill(chs,'.');
@@ -28,7 +28,7 @@ class Solution {
     
     public boolean isValid(int[] queen,int cur,int j){
         for(int k=0;k<cur;k++){
-            if(j == queen[k] || Math.abs(queen[k]-j) == Math.abs(cur - k)){
+            if(j == queen[k] || Math.abs(queen[k] - j) == Math.abs(cur - k)){
                 return false;
             }
         }
