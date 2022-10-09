@@ -16,12 +16,12 @@
 class Solution {
     ArrayList<Integer> list = new ArrayList<>();
     int maxCount = 0;
-    int count = 0;
+    int count = 1;
     TreeNode pre;
     public int[] findMode(TreeNode root) {
         process(root);
-        int[] res=new int[list.size()];
-        for(int i=0;i<list.size();i++){
+        int[] res = new int[list.size()];
+        for(int i=0;i<res.length;i++){
             res[i] = list.get(i);
         }
         return res;
