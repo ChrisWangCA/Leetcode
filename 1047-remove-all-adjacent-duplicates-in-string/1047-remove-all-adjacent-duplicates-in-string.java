@@ -1,17 +1,17 @@
 class Solution {
     public String removeDuplicates(String s) {
-        char[] ch = s.toCharArray();
+        char[] chs = s.toCharArray();
         int fast = 0;
         int slow = 0;
-        while(fast<ch.length){
-            ch[slow] = ch[fast];
-            if(slow > 0 && ch[slow] == ch[slow-1]){
-                slow--;
+        while(fast < chs.length){
+            chs[slow] = chs[fast];
+            if(slow > 0 && chs[slow] == chs[slow-1]){
+                slow --;
             }else{
-                slow++;
+                slow ++;
             }
             fast++;
         }
-        return new String(ch,0,slow);
+        return new String(chs,0,slow);
     }
 }
