@@ -2,16 +2,16 @@ class Solution {
     public List<String> topKFrequent(String[] words, int k) {
         List<String> res = new ArrayList<>();
         HashMap<String,Integer> map = new HashMap<>();
-        for(String s:words){
-            map.put(s,map.getOrDefault(s,0)+1);
+        for(int i=0;i<words.length;i++){
+            map.put(words[i],map.getOrDefault(words[i],0)+1);
         }
-        for(Map.Entry<String,Integer> entites:map.entrySet()){
-            res.add(entites.getKey());
+        for(Map.Entry<String,Integer> entry:map.entrySet()){
+            res.add(entry.getKey());
         }
         Collections.sort(res,new Comparator<String>(){
-            public int compare(String o1,String o2){
-                return map.get(o1) == map.get(o2) ?
-                    o1.compareTo(o2):map.get(o2) - map.get(o1);
+            public int compare(String s1,String s2){
+                return map.get(s1) == map.get(s2) ?
+                    s1.compareTo(s2) : map.get(s2) - map.get(s1);
             }
         });
         return res.subList(0,k);
