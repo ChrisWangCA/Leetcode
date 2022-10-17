@@ -5,8 +5,7 @@ class Solution {
         process(nums,res,list);
         return res;
     }
-    
-    public void process(int[] nums,List<List<Integer>> res,List<Integer> list){
+    public void process(int[] nums,List<List<Integer>> res, List<Integer> list){
         if(list.size() == nums.length){
             res.add(new ArrayList<>(list));
             return;
