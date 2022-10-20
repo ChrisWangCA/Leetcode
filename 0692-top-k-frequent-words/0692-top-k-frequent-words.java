@@ -9,10 +9,9 @@ class Solution {
             res.add(entry.getKey());
         }
         Collections.sort(res,new Comparator<String>(){
-            public int compare(String o1,String o2){
-                return map.get(o1) == map.get(o2)?
-                    o1.compareTo(o2):map.get(o2) - map.get(o1);
-            }
+           public int compare(String o1,String o2){
+               return map.get(o1) == map.get(o2) ? o1.compareTo(o2):map.get(o2)-map.get(o1);
+           }
         });
         return res.subList(0,k);
     }
