@@ -14,12 +14,13 @@
  * }
  */
 class Solution {
-    public class Info{
+    
+    class Info{
         int maxDistance;
         int height;
-        Info(int maxDistance,int height){
-            this.maxDistance = maxDistance;
-            this.height = height;
+        Info(int m,int h){
+            this.maxDistance = m;
+            this.height = h;
         }
     }
     
@@ -31,11 +32,11 @@ class Solution {
         if(root == null) return new Info(0,0);
         Info left = process(root.left);
         Info right = process(root.right);
-        int res1 = left.maxDistance;
-        int res2 = right.maxDistance;
-        int res3 = left.height + right.height;
-        int maxDistance = Math.max(res3,Math.max(res1,res2));
-        int height = Math.max(left.height,right.height) + 1;
+        int p1 = left.maxDistance;
+        int p2 = right.maxDistance;
+        int p3 = left.height + right.height;
+        int maxDistance = Math.max(p3,Math.max(p1,p2));
+        int height = Math.max(left.height,right.height)+1;
         return new Info(maxDistance,height);
     }
 }
