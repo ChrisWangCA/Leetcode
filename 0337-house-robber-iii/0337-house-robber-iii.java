@@ -18,14 +18,14 @@ class Solution {
     public class Info{
         int no;
         int yes;
-        Info(int n,int y){
-            this.no = n;
-            this.yes = y;
+        Info(int no,int yes){
+            this.no = no;
+            this.yes = yes;
         }
     }
     
     public int rob(TreeNode root) {
-        Info res = process(root);
+       Info res = process(root);
         return Math.max(res.no,res.yes);
     }
     
