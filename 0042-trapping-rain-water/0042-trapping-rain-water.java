@@ -12,7 +12,7 @@ class Solution {
                 leftMax = Math.max(leftMax,height[l++]);
             }else{
                 val += Math.max(0,rightMax - height[r]);
-                rightMax = Math.max(rightMax, height[r--]);
+                rightMax = Math.max(rightMax,height[r--]);
             }
         }
         return val;
