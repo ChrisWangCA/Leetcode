@@ -12,21 +12,21 @@ class Solution {
     public ListNode partition(ListNode head, int x) {
         ListNode small = new ListNode(0);
         ListNode smallHead = small;
-        ListNode big = new ListNode(0);
-        ListNode bigHead = big;
+        ListNode large = new ListNode(0);
+        ListNode largeHead = large;
         ListNode cur = head;
-        while(cur!=null){
+        while(cur != null){
             if(cur.val < x){
                 small.next = cur;
                 small = small.next;
             }else{
-                big.next = cur;
-                big = big.next;
+                large.next = cur;
+                large = large.next;
             }
             cur = cur.next;
         }
-        big.next = null;
-        small.next = bigHead.next;
+        large.next = null;
+        small.next = largeHead.next;
         return smallHead.next;
     }
 }
