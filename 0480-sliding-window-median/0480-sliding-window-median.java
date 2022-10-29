@@ -12,7 +12,7 @@ class Solution {
             bigHeap.add(smallHeap.poll());
         }
         res[0] = getMid(bigHeap,smallHeap);
-        for(int i=k;i<N;i++){
+        for(int i=k;i<nums.length;i++){
             int add = nums[i];
             int del = nums[i-k];
             if(add >= smallHeap.peek()){
@@ -42,10 +42,9 @@ class Solution {
     
     public double getMid(PriorityQueue<Integer> bigHeap,PriorityQueue<Integer> smallHeap){
         if(bigHeap.size() == smallHeap.size()){
-            return (bigHeap.peek()/2.0) + (smallHeap.peek()/2.0);
+            return (bigHeap.peek() / 2.0) + (smallHeap.peek() / 2.0);
         }else{
             return smallHeap.peek() * 1.0;
         }
     }
-    
 }
