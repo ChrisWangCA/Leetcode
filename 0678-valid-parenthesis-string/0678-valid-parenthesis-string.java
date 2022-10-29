@@ -2,13 +2,13 @@ class Solution {
     public boolean checkValidString(String s) {
         Stack<Integer> stack = new Stack<>();
         Stack<Integer> starStack = new Stack<>();
-        char[] chs = s.toCharArray();
-        for(int i=0;i<chs.length;i++){
-            if(chs[i] == '('){
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if(c == '('){
                 stack.push(i);
-            }else if(chs[i] == '*'){
+            }else if(c == '*'){
                 starStack.push(i);
-            }else {
+            }else{
                 if(!stack.isEmpty()){
                     stack.pop();
                 }else if(!starStack.isEmpty()){
