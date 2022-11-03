@@ -26,6 +26,6 @@ class Solution {
                 depth = Math.max(depth,maxDepth(child));
             }
         }
-        return depth + 1;
+        return depth+1;
     }
 }
