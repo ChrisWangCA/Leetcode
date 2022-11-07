@@ -24,10 +24,10 @@ class Solution {
         int maxValue = nums[left];
         int maxIndex = left;
         for(int i=left;i<right;i++){
-            if(nums[i] > maxValue){
-                maxValue = nums[i];
-                maxIndex = i;
-            }
+             if(nums[i] > maxValue){
+                 maxValue = nums[i];
+                 maxIndex = i;
+             }
         }
         TreeNode root = new TreeNode(maxValue);
         root.left = process(nums,left,maxIndex);
