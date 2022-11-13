@@ -20,12 +20,12 @@ class Solution {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
-            int len = queue.size();
+            int size = queue.size();
             int count = 0;
             double sum = 0;
-            while(len > 0){
-                len --;
-                count ++;
+            while(size > 0){
+                size--;
+                count++;
                 TreeNode temp = queue.poll();
                 sum += temp.val;
                 if(temp.left != null){
