@@ -17,11 +17,12 @@ class Solution {
     public boolean isSymmetric(TreeNode root) {
         return isSame(root.left,root.right);
     }
+    
     public boolean isSame(TreeNode left,TreeNode right){
         if(left == null && right == null) return true;
         if(left == null || right == null || left.val != right.val) return false;
-        boolean outside = isSame(left.left,right.right);
-        boolean inside = isSame(left.right,right.left);
-        return outside && inside;
+        boolean leftR = isSame(left.left,right.right);
+        boolean rightL = isSame(left.right,right.left);
+        return leftR && rightL;
     }
 }
