@@ -18,11 +18,11 @@ class Solution {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
         if(root == null) return res;
-        process(root,res,list,targetSum);
+        process(root,targetSum,res,list);
         return res;
     }
     
-    public void process(TreeNode root,List<List<Integer>> res,List<Integer> list,int target){
+    public void process(TreeNode root,int target,List<List<Integer>> res,List<Integer> list){
         list.add(root.val);
         if(root.left == null && root.right == null){
             if(target - root.val == 0){
@@ -31,11 +31,11 @@ class Solution {
             return;
         }
         if(root.left != null){
-            process(root.left,res,list,target-root.val);
+            process(root.left,target-root.val,res,list);
             list.remove(list.size()-1);
         }
         if(root.right != null){
-            process(root.right,res,list,target-root.val);
+            process(root.right,target-root.val,res,list);
             list.remove(list.size()-1);
         }
     }
