@@ -1,14 +1,14 @@
 class Solution {
     public String removeDuplicates(String s) {
         char[] chs = s.toCharArray();
-        int fast = 0;
         int slow = 0;
-        while(fast < chs.length){
+        int fast = 0;
+        for(int i=0;i<chs.length;i++){
             chs[slow] = chs[fast];
             if(slow > 0 && chs[slow] == chs[slow-1]){
-                slow --;
+                slow--;
             }else{
-                slow ++;
+                slow++;
             }
             fast++;
         }
