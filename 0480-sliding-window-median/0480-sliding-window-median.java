@@ -30,7 +30,6 @@ class Solution {
         }
         return res;
     }
-    
     public void adjust(PriorityQueue<Integer> bigHeap,PriorityQueue<Integer> smallHeap){
         while(bigHeap.size() > smallHeap.size()){
             smallHeap.add(bigHeap.poll());
@@ -39,7 +38,6 @@ class Solution {
             bigHeap.add(smallHeap.poll());
         }
     }
-    
     public double getMid(PriorityQueue<Integer> bigHeap,PriorityQueue<Integer> smallHeap){
         if(bigHeap.size() == smallHeap.size()){
             return (bigHeap.peek() / 2.0) + (smallHeap.peek() / 2.0);
