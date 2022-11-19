@@ -6,10 +6,10 @@ class Solution {
         int count = 1;
         int i,j;
         while(loop++ < n / 2){
-            for(j = start;j < n - loop;j++){
+            for(j = start;j<n-loop;j++){
                 res[start][j] = count++;
             }
-            for(i = start;i < n - loop;i++){
+            for(i = start;i<n-loop;i++){
                 res[i][j] = count++;
             }
             for(;j >= loop;j--){
