@@ -20,10 +20,10 @@ public class Codec {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        String[] str = data.split("_");
+        String[] res = data.split("_");
         Deque<String> queue = new ArrayDeque<>();
-        for(int i=0;i<str.length;i++){
-            queue.offer(str[i]);
+        for(int i=0;i<res.length;i++){
+            queue.offer(res[i]);
         }
         return deserialize(queue);
     }
