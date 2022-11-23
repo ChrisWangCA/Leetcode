@@ -1,4 +1,5 @@
 class RandomizedSet {
+
     HashMap<Integer,Integer> keyToIndex;
     HashMap<Integer,Integer> indexToKey;
     int size;
@@ -34,7 +35,7 @@ class RandomizedSet {
     }
     
     public int getRandom() {
-        int random = (int) (Math.random() * size);
+        int random = (int)(Math.random() * size);
         return indexToKey.get(random);
     }
 }
