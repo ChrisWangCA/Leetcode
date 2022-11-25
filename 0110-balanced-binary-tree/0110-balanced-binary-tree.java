@@ -22,6 +22,6 @@ class Solution {
     
     public int process(TreeNode root){
         if(root == null) return 0;
-        return Math.max(process(root.left),process(root.right))+1;
+        return Math.max(process(root.left),process(root.right)) + 1;
     }
 }
