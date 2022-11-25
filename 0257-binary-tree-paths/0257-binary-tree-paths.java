@@ -18,11 +18,11 @@ class Solution {
         List<String> res = new ArrayList<>();
         if(root == null) return res;
         List<Integer> list = new ArrayList<>();
-        process(root,res,list);
+        process(root,list,res);
         return res;
     }
     
-    public void process(TreeNode root,List<String> res,List<Integer> list){
+    public void process(TreeNode root,List<Integer> list,List<String> res){
         list.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
@@ -34,11 +34,11 @@ class Solution {
             return;
         }
         if(root.left != null){
-            process(root.left,res,list);
+            process(root.left,list,res);
             list.remove(list.size()-1);
         }
         if(root.right != null){
-            process(root.right,res,list);
+            process(root.right,list,res);
             list.remove(list.size()-1);
         }
     }
