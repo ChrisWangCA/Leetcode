@@ -18,20 +18,20 @@ class Solution {
         return process(nums,0,nums.length);
     }
     
-    public TreeNode process(int[] nums,int left,int right){
+    public TreeNode process(int[] arr,int left,int right){
         if(right - left < 1) return null;
-        if(right - left == 1) return new TreeNode(nums[left]);
-        int maxValue = nums[left];
+        if(right - left == 1) return new TreeNode(arr[left]);
+        int maxValue = arr[left];
         int maxIndex = left;
         for(int i=left;i<right;i++){
-             if(nums[i] > maxValue){
-                 maxValue = nums[i];
-                 maxIndex = i;
-             }
+            if(maxValue < arr[i]){
+                maxValue = arr[i];
+                maxIndex = i;
+            }
         }
         TreeNode root = new TreeNode(maxValue);
-        root.left = process(nums,left,maxIndex);
-        root.right = process(nums,maxIndex+1,right);
+        root.left = process(arr,left,maxIndex);
+        root.right = process(arr,maxIndex+1,right);
         return root;
     }
 }
