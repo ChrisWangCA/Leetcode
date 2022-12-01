@@ -1,6 +1,6 @@
 class Solution {
     public boolean PredictTheWinner(int[] nums) {
-        return process(nums,0,nums.length-1) >=0;
+        return process(nums,0,nums.length-1)>=0;
     }
     
     public int process(int[] nums,int left,int right){
