@@ -6,9 +6,7 @@ class Solution {
             res[i] = 1;
         }
         for(int j:nums2){
-            if(res[j] == 1){
-                set.add(j);
-            }
+            if(res[j] == 1) set.add(j);
         }
         return set.stream().mapToInt(s->s).toArray();
     }
