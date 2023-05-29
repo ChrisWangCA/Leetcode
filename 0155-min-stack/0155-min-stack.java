@@ -1,7 +1,7 @@
 class MinStack {
-
     Stack<Integer> stack;
     Stack<Integer> minStack;
+
     public MinStack() {
         stack = new Stack<>();
         minStack = new Stack<>();
@@ -18,8 +18,8 @@ class MinStack {
     
     public void pop() {
         if(!stack.isEmpty() && !minStack.isEmpty()){
-            minStack.pop();
             stack.pop();
+            minStack.pop();
         }
     }
     
