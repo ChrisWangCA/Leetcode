@@ -22,20 +22,20 @@ class Solution {
         return res;
     }
     
-    public void process(TreeNode root,int target,List<List<Integer>> res,List<Integer> list){
+    public void process(TreeNode root,int targetSum,List<List<Integer>> res, List<Integer> list){
         list.add(root.val);
         if(root.left == null && root.right == null){
-            if(target - root.val == 0){
+            if(targetSum - root.val == 0){
                 res.add(new ArrayList<>(list));
             }
             return;
         }
         if(root.left != null){
-            process(root.left,target-root.val,res,list);
+            process(root.left,targetSum-root.val,res,list);
             list.remove(list.size()-1);
         }
         if(root.right != null){
-            process(root.right,target-root.val,res,list);
+            process(root.right,targetSum-root.val,res,list);
             list.remove(list.size()-1);
         }
     }
