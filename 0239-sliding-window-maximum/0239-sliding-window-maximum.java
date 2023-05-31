@@ -1,24 +1,28 @@
 class Solution {
+    
     Deque<Integer> queue = new ArrayDeque<>();
-    class MyQueue{
+    
+    public class MyQueue{
         void pop(int val){
             if(!queue.isEmpty() && val == queue.peek()){
                 queue.pop();
             }
         }
+        
         void add(int val){
             while(!queue.isEmpty() && val > queue.peekLast()){
                 queue.removeLast();
             }
             queue.add(val);
         }
+        
         int max(){
             return queue.peek();
         }
     }
     
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums == null || nums.length < 2) return nums;
+        if(nums.length < 2 || nums == null) return nums;
         int len = nums.length - k + 1;
         int[] res = new int[len];
         int index = 0;
@@ -34,4 +38,6 @@ class Solution {
         }
         return res;
     }
+    
+    
 }
