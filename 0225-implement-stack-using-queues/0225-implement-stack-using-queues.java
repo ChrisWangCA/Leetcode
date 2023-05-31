@@ -1,4 +1,5 @@
 class MyStack {
+    
     Deque<Integer> queue;
 
     public MyStack() {
