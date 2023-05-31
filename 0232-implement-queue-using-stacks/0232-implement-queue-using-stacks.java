@@ -1,13 +1,15 @@
 class MyQueue {
-
+    
     Stack<Integer> stackIn;
     Stack<Integer> stackOut;
+    
     public MyQueue() {
         stackIn = new Stack<>();
         stackOut = new Stack<>();
     }
     
     public void push(int x) {
+        dump();
         stackIn.push(x);
     }
     
