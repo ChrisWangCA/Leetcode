@@ -20,18 +20,18 @@ class Node {
 class Solution {
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> res = new ArrayList<>();
-        if(root == null) return res;
         Queue<Node> queue = new LinkedList<>();
+        if(root == null) return res;
         queue.offer(root);
         while(!queue.isEmpty()){
-            int len = queue.size();
+            int size = queue.size();
             List<Integer> list = new ArrayList<>();
-            while(len > 0){
-                len --;
+            while(size > 0){
+                size--;
                 Node temp = queue.poll();
                 List<Node> children = temp.children;
                 for(Node child:children){
-                    queue.offer(child);
+                    if(child != null) queue.offer(child);
                 }
                 list.add(temp.val);
             }
