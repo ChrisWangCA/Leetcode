@@ -15,22 +15,23 @@
  */
 class Solution {
     public int sumOfLeftLeaves(TreeNode root) {
-        int res = 0;
-        if(root == null) return res;
+        int sum = 0;
+        if(root == null) return sum;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
-            TreeNode temp = queue.poll();
-            if(temp.left != null){
-                queue.offer(temp.left);
-                if(temp.left.left == null && temp.left.right == null){
-                    res += temp.left.val;
+            int len = queue.size();
+            for(int i=0;i<len;i++){
+                TreeNode temp = queue.poll();
+                if(temp.left != null){
+                    queue.offer(temp.left);
+                    if(temp.left.left == null && temp.left.right == null){
+                        sum += temp.left.val;
+                    }
                 }
-            }
-            if(temp.right != null){
-                queue.offer(temp.right);
+                if(temp.right != null) queue.offer(temp.right);
             }
         }
-        return res;
+        return sum;
     }
 }
