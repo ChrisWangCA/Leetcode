@@ -1,4 +1,6 @@
 class MedianFinder {
+
+    
     
     PriorityQueue<Integer> smallHeap;
     PriorityQueue<Integer> bigHeap;
@@ -23,7 +25,7 @@ class MedianFinder {
     
     public double findMedian() {
         return smallHeap.size() > bigHeap.size() ? smallHeap.peek():
-        smallHeap.peek() / 2.0 + bigHeap.peek() / 2.0;
+        (bigHeap.peek() + smallHeap.peek()) / 2.0;
     }
 }
 
