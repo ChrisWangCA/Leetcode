@@ -16,8 +16,8 @@
 class Solution {
     
     public class Info{
-        int no;
         int yes;
+        int no;
         Info(int no,int yes){
             this.no = no;
             this.yes = yes;
@@ -25,16 +25,18 @@ class Solution {
     }
     
     public int rob(TreeNode root) {
-        Info Info = process(root);
-        return Math.max(Info.no,Info.yes);
+        Info info = process(root);
+        return Math.max(info.no,info.yes);
     }
     
     public Info process(TreeNode root){
-        if(root == null) return new Info(0,0);
+        if(root == null){
+            return new Info(0,0);
+        }
         Info left = process(root.left);
         Info right = process(root.right);
-        int no = Math.max(left.no,left.yes) + Math.max(right.no,right.yes);
-        int yes = root.val + left.no + right.no;
-        return new Info(no,yes);
+        int planA = Math.max(left.no,left.yes) + Math.max(right.no,right.yes);
+        int planB = root.val + left.no + right.no;
+        return new Info(planA,planB);
     }
 }
