@@ -11,7 +11,9 @@ class Solution {
             }
         }else{
             for(Integer i:map.keySet()){
-                if(map.containsKey(i+k)) res++;
+                if(map.containsKey(i+k)){
+                    res++;
+                }
             }
         }
         return res;
