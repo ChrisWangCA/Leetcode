@@ -14,30 +14,29 @@
  * }
  */
 class Solution {
-    
-    public class Info{
-        int maxDistance;
+        class Info{
+        int distance;
         int height;
-        Info(int m,int h){
-            this.maxDistance = m;
+        Info(int d,int h){
+            this.distance = d;
             this.height = h;
         }
     }
-    
+
     public int diameterOfBinaryTree(TreeNode root) {
-        Info res = process(root);
-        return res.maxDistance;
+        return process(root).distance;
     }
-    
+
     public Info process(TreeNode root){
         if(root == null) return new Info(0,0);
         Info left = process(root.left);
         Info right = process(root.right);
-        int p1 = left.maxDistance;
-        int p2 = right.maxDistance;
+        int p1 = left.distance;
+        int p2 = right.distance;
         int p3 = left.height + right.height;
-        int maxDistance = Math.max(p3,Math.max(p1,p2));
-        int height = Math.max(left.height,right.height) + 1;
-        return new Info(maxDistance,height);
-    }
+        int distance = Math.max(Math.max(p1,p2),p3);
+        int height = Math.max(left.height,right.height)+1;
+        return new Info(distance,height);
+    }    
+    
 }
