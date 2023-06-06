@@ -16,7 +16,6 @@
 class Solution {
     public int widthOfBinaryTree(TreeNode root) {
         int max = 1;
-        if(root == null) return 0;
         int next = 0;
         root.val = 1;
         Deque<TreeNode> queue = new ArrayDeque<>();
@@ -37,9 +36,9 @@ class Solution {
                     next++;
                 }
                 if(len == 0){
-                    if(next!=0){
+                    if(next != 0){
                         max = Math.max(max,queue.peekLast().val - queue.peekFirst().val + 1);
-                        next=0;
+                        next = 0;
                     }
                 }
             }
