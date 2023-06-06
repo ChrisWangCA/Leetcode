@@ -1,6 +1,5 @@
 class Solution {
     public boolean checkValidString(String s) {
-        if(s == null || s.length() < 1) return false;
         Stack<Integer> stack = new Stack<>();
         Stack<Integer> starStack = new Stack<>();
         char[] chs = s.toCharArray();
