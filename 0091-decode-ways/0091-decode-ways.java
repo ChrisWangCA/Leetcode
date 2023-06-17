@@ -4,10 +4,13 @@ class Solution {
         Arrays.fill(memo,-1);
         return process(s.toCharArray(),memo,0);
     }
+    
     public int process(char[] chs,int[] memo,int i){
         if(i == chs.length) return 1;
         if(chs[i] == '0') return 0;
-        if(memo[i] != -1) return memo[i];
+        if(memo[i] != -1){
+            return memo[i];
+        }
         if(chs[i] == '1'){
             int res = process(chs,memo,i+1);
             if(i+1 < chs.length){
