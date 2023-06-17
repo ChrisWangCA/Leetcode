@@ -22,7 +22,9 @@ class Solution {
     public boolean process(TreeNode root){
         if(root == null) return true;
         boolean left = process(root.left);
-        if(root.val <= min) return false;
+        if(root.val <= min){
+            return false;
+        }
         min = root.val;
         boolean right = process(root.right);
         return left && right;
