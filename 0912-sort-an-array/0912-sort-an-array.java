@@ -1,35 +1,39 @@
 class Solution {
     public int[] sortArray(int[] nums) {
+        int[] res = new int[nums.length];
+        if(nums == null || nums.length < 2) return res;
         quickSort(nums,0,nums.length-1);
         return nums;
     }
     
-    public void quickSort(int[] arr,int l,int r){
-        if(l<r){
-            swap(arr,l+(int)(Math.random() * (r-l+1)),r);
-            int[] p=partition(arr,l,r);
-            quickSort(arr,l,p[0]-1);
-            quickSort(arr,p[1]+1,r);
+    public void quickSort(int[] nums,int left,int right){
+        if(left < right){
+            swap(nums,left + (int)(Math.random() * (right-left+1)),right);
+            int[] p = partition(nums,left,right);
+            quickSort(nums,left,p[0]-1);
+            quickSort(nums,p[1]+1,right);
         }
     }
-    public int[] partition(int[] arr,int l,int r){
-        int less = l-1;
-        int more = r;
-        while(l < more){
-            if(arr[l] < arr[r]){
-                swap(arr,++less,l++);
-            }else if(arr[l] > arr[r]){
-                swap(arr,--more,l);
+    
+    public int[] partition(int[] nums,int left,int right){
+        int less = left-1;
+        int more = right;
+        while(left<more){
+            if(nums[left] < nums[right]){
+                swap(nums,++less,left++);
+            }else if(nums[left] > nums[right]){
+                swap(nums,--more,left);
             }else{
-                l++;
+                left++;
             }
         }
-        swap(arr,more,r);
+        swap(nums,more,right);
         return new int[]{less+1,more};
     }
-    public void swap(int[] arr,int i,int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+    
+    public void swap(int[] nums,int i,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }
