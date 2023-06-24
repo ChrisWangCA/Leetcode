@@ -4,12 +4,13 @@ class Solution {
         int[] res = new int[fruits.length];
         int maxFruit = 0;
         int maxBasket = 0;
-        for(int right = 0;right < fruits.length;right++){
-            int cur = fruits[right];
+        
+        for(int i=0;i<fruits.length;i++){
+            int cur = fruits[i];
             if(res[cur] == 0){
                 maxBasket++;
             }
-            res[cur] ++;
+            res[cur]++;
             
             while(maxBasket > 2){
                 int leftFruit = fruits[left];
@@ -19,7 +20,7 @@ class Solution {
                 }
                 left++;
             }
-            maxFruit = Math.max(maxFruit, right - left + 1);
+            maxFruit = Math.max(maxFruit,i-left+1);
         }
         return maxFruit;
     }
