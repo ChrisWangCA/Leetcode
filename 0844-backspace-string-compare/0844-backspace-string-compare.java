@@ -10,9 +10,8 @@ class Solution {
             }
         }
         String s1 = new String(chs,0,slow);
-        
-        char[] cht = t.toCharArray();
         slow = 0;
+        char[] cht = t.toCharArray();
         for(int i=0;i<cht.length;i++){
             if(cht[i] == '#'){
                 slow = Math.max(0,slow-1);
