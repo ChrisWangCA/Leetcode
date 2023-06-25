@@ -4,14 +4,10 @@ class Solution {
         int[] res = new int[fruits.length];
         int maxFruit = 0;
         int maxBasket = 0;
-        
         for(int i=0;i<fruits.length;i++){
             int cur = fruits[i];
-            if(res[cur] == 0){
-                maxBasket++;
-            }
-            res[cur]++;
-            
+            if(res[cur] == 0) maxBasket++;
+            res[cur] ++;
             while(maxBasket > 2){
                 int leftFruit = fruits[left];
                 res[leftFruit]--;
