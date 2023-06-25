@@ -11,15 +11,13 @@
 class Solution {
     public ListNode removeElements(ListNode head, int val) {
         ListNode dummy = new ListNode(-1,head);
-        ListNode fast = dummy;
-        ListNode slow = dummy;
-        while(fast != null){
-            if(fast.val == val){
-                slow.next = fast.next;
+        ListNode cur = dummy;
+        while(cur.next!=null){
+            if(cur.next.val == val){
+                cur.next = cur.next.next;
             }else{
-                slow = fast;
+                cur = cur.next;
             }
-            fast = fast.next;
         }
         return dummy.next;
     }
