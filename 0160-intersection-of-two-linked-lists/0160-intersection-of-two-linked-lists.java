@@ -15,11 +15,11 @@ public class Solution {
         ListNode curB = headB;
         int lenA = 0;
         int lenB = 0;
-        while(curA != null){
+        while(curA!=null){
             lenA++;
             curA = curA.next;
         }
-        while(curB != null){
+        while(curB!=null){
             lenB++;
             curB = curB.next;
         }
@@ -29,9 +29,9 @@ public class Solution {
             int tempLen = lenA;
             lenA = lenB;
             lenB = tempLen;
-            ListNode tem = curA;
+            ListNode temp = curA;
             curA = curB;
-            curB = tem;
+            curB = temp;
         }
         int gap = lenA - lenB;
         while(gap-- > 0){
