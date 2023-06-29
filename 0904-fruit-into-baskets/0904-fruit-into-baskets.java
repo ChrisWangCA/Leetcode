@@ -6,14 +6,12 @@ class Solution {
         int maxBasket = 0;
         for(int i=0;i<fruits.length;i++){
             int curFruit = fruits[i];
-            if(res[curFruit] == 0){
-                maxBasket++;
-            }
+            if(res[curFruit] == 0) maxBasket++;
             res[curFruit]++;
             while(maxBasket > 2){
                 int leftFruit = fruits[left];
                 res[leftFruit]--;
-                if(res[leftFruit] == 0){
+                if(res[leftFruit]==0){
                     maxBasket--;
                 }
                 left++;
