@@ -8,9 +8,9 @@ class Solution {
             if(groups.containsKey(sortedString)){
                 groups.get(sortedString).add(str);
             }else{
-                List<String> group = new ArrayList<>();
-                group.add(str);
-                groups.put(sortedString,group);
+                List<String> list = new ArrayList<>();
+                list.add(str);
+                groups.put(sortedString,list);
             }
         }
         return new ArrayList<>(groups.values());
