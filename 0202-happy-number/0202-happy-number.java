@@ -3,12 +3,12 @@ class Solution {
         Set<Integer> set = new HashSet<>();
         while(n != 1 && !set.contains(n)){
             set.add(n);
-            n = getNextNumber(n);
+            n = getNext(n);
         }
         return n == 1;
     }
     
-    public int getNextNumber(int n){
+    public int getNext(int n){
         int res = 0;
         while(n > 0){
             int temp = n % 10;
