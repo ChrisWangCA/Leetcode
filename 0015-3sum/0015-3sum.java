@@ -16,9 +16,9 @@ class Solution {
                 }else{
                     res.add(Arrays.asList(nums[i],nums[left],nums[right]));
                     while(right>left && nums[right]==nums[right-1]) right--;
-                    while(right>left && nums[left]==nums[left+1]) left++;
-                    right--;
+                    while(right>left && nums[left] == nums[left+1]) left++;
                     left++;
+                    right--;
                 }
             }
         }
