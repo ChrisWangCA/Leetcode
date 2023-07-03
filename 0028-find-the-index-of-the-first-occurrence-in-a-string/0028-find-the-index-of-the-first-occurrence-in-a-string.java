@@ -4,7 +4,7 @@ class Solution {
             return -1;
         }
         int index = 0;
-        while(haystack!=null){
+        while(haystack != null){
             if(haystack.startsWith(needle)){
                 return index;
             }
