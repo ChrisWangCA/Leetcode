@@ -2,21 +2,18 @@ class Solution {
     public String reverseWords(String s) {
         s = s.trim();
         String[] str = s.split(" ");
-        int right = str.length-1;
-        for(int i=0;i<right;i++){
+        for(int i=0,j=str.length-1;i<j;i++,j--){
             String temp = str[i];
-            str[i] = str[right];
-            str[right] = temp;
-            right--;
+            str[i] = str[j];
+            str[j] = temp;
         }
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<str.length;i++){
-            if(!str[i].equals("")){
-                if(i == str.length-1){
-                    sb.append(str[i]);
-                }else{
-                    sb.append(str[i]).append(" ");
-                }
+            if(str[i].equals("")) continue;
+            if(i != str.length-1){
+                sb.append(str[i]).append(" ");
+            }else{
+                sb.append(str[i]);
             }
         }
         return sb.toString();
