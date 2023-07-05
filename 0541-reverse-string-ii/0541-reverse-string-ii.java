@@ -10,8 +10,7 @@ class Solution {
         }
         return new String(chs);
     }
-    
-    public void reverse(char[] chs, int i,int j){
+    public void reverse(char[] chs,int i,int j){
         for(;i<j;i++,j--){
             char temp = chs[i];
             chs[i] = chs[j];
