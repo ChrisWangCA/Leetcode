@@ -1,16 +1,16 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        int index = 0;
+        int i = 0;
         while(haystack != null){
             if(haystack.startsWith(needle)){
-                return index;
+                return i;
             }
             if(haystack.length() == 1){
                 haystack = null;
             }else{
                 haystack = haystack.substring(1,haystack.length());
             }
-            index++;
+            i++;
         }
         return -1;
     }
