@@ -39,9 +39,10 @@ class MyLinkedList {
         if(head == null){
             head = newNode;
         }else{
-            while(cur.next != null){
+            while(cur.next!= null){
                 cur = cur.next;
             }
+            newNode.next = cur.next;
             cur.next = newNode;
             N++;
         }
