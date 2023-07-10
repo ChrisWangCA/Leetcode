@@ -15,32 +15,30 @@ public class Solution {
         ListNode curB = headB;
         int lenA = 0;
         int lenB = 0;
-        while(curA != null){
-            lenA++;
+        while(curA!=null){
             curA = curA.next;
+            lenA++;
         }
-        while(curB != null){
-            lenB++;
+        while(curB!=null){
             curB = curB.next;
+            lenB++;
         }
         curA = headA;
         curB = headB;
         if(lenB > lenA){
-            int l = lenA;
+           int len = lenA;
             lenA = lenB;
-            lenB = l;
-            ListNode t = curA;
+            lenB = len;
+            ListNode cur = curA;
             curA = curB;
-            curB = t;
+            curB = cur;
         }
         int gap = lenA - lenB;
         while(gap-- > 0){
             curA = curA.next;
         }
         while(curA != null){
-            if(curA == curB){
-                return curA;
-            }
+            if(curA == curB) return curA;
             curA = curA.next;
             curB = curB.next;
         }
