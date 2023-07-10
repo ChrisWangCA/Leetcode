@@ -5,11 +5,11 @@ class Solution {
     public class MyQueue{
         void pop(int val){
             if(!queue.isEmpty() && val == queue.peek()){
-                queue.pop();
+                queue.poll();
             }
         }
         
-        void add(int val){
+        void push(int val){
             while(!queue.isEmpty() && val > queue.peekLast()){
                 queue.removeLast();
             }
@@ -22,22 +22,20 @@ class Solution {
     }
     
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums.length < 2 || nums == null) return nums;
-        int len = nums.length - k + 1;
+        if(nums == null || nums.length < 2) return nums;
+        int len = nums.length-k+1;
         int[] res = new int[len];
         int index = 0;
         MyQueue queue = new MyQueue();
         for(int i=0;i<k;i++){
-            queue.add(nums[i]);
+            queue.push(nums[i]);
         }
         res[index++] = queue.max();
         for(int i=k;i<nums.length;i++){
             queue.pop(nums[i-k]);
-            queue.add(nums[i]);
+            queue.push(nums[i]);
             res[index++] = queue.max();
         }
         return res;
     }
-    
-    
 }
