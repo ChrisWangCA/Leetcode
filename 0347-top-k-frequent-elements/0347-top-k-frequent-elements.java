@@ -7,11 +7,11 @@ class Solution {
         }
         Set<Map.Entry<Integer,Integer>> sets = map.entrySet();
         PriorityQueue<Map.Entry<Integer,Integer>> queue = new PriorityQueue<>(
-        (o1,o2)->o2.getValue() - o1.getValue());
+        (o1,o2)->o2.getValue()-o1.getValue());
         for(Map.Entry<Integer,Integer> set:sets){
             queue.offer(set);
         }
-        for(int i = k-1;i>=0;i--){
+        for(int i=k-1;i>=0;i--){
             res[i] = queue.poll().getKey();
         }
         return res;
