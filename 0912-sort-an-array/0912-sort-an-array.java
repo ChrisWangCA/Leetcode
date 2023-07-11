@@ -1,39 +1,38 @@
 class Solution {
     public int[] sortArray(int[] nums) {
-        int[] res = new int[nums.length];
-        if(nums == null || nums.length < 2) return res;
-        quickSort(nums,0,nums.length-1);
+        mergeSort(nums,0,nums.length-1);
         return nums;
     }
     
-    public void quickSort(int[] nums,int left,int right){
-        if(left < right){
-            swap(nums,left + (int)(Math.random() * (right-left+1)),right);
-            int[] p = partition(nums,left,right);
-            quickSort(nums,left,p[0]-1);
-            quickSort(nums,p[1]+1,right);
-        }
+    public void mergeSort(int[] nums,int left,int right){
+        if(left == right) return;
+        int mid = left + (right-left) / 2;
+        mergeSort(nums,left,mid);
+        mergeSort(nums,mid+1,right);
+        merge(nums,left,mid+1,right);
     }
     
-    public int[] partition(int[] nums,int left,int right){
-        int less = left-1;
-        int more = right;
-        while(left<more){
-            if(nums[left] < nums[right]){
-                swap(nums,++less,left++);
-            }else if(nums[left] > nums[right]){
-                swap(nums,--more,left);
+    public void merge(int[] arr,int leftPtr,int rightPtr,int rightBound){
+        int mid = rightPtr-1;
+        int temp[] = new int[rightBound - leftPtr + 1];
+        int i = leftPtr;
+        int j = rightPtr;
+        int k = 0;
+        while(i <= mid && j <= rightBound){
+            if(arr[i] <= arr[j]){
+                temp[k++] = arr[i++];
             }else{
-                left++;
+                temp[k++] = arr[j++];
             }
         }
-        swap(nums,more,right);
-        return new int[]{less+1,more};
-    }
-    
-    public void swap(int[] nums,int i,int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
+        while(i <= mid){
+            temp[k++] = arr[i++];
+        }
+        while(j <= rightBound){
+            temp[k++] = arr[j++];
+        }
+        for(int m=0;m<temp.length;m++){
+            arr[leftPtr+m] = temp[m];
+        }
     }
 }
