@@ -2,10 +2,10 @@ class Solution {
     
     Deque<Integer> queue = new ArrayDeque<>();
     
-    public class MyQueue{
+    class MyQueue{
         void pop(int val){
             if(!queue.isEmpty() && val == queue.peek()){
-                queue.pop();
+                queue.poll();
             }
         }
         
@@ -22,9 +22,9 @@ class Solution {
     }
     
     public int[] maxSlidingWindow(int[] nums, int k) {
+        int index = 0;
         int len = nums.length-k+1;
         int[] res = new int[len];
-        int index = 0;
         MyQueue queue = new MyQueue();
         for(int i=0;i<k;i++){
             queue.add(nums[i]);
