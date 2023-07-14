@@ -28,17 +28,13 @@ class Solution {
         queue.offer(root);
         while(!queue.isEmpty()){
             int len = queue.size();
-            for(int i=0;i<len;i++){
+            while(len-- > 0){
                 Node temp = queue.poll();
-                if(temp.left != null){
-                    queue.offer(temp.left);
-                }
-                if(temp.right != null){
-                    queue.offer(temp.right);
-                }
-                 if(i!=len-1){
+                if(temp.left!=null) queue.offer(temp.left);
+                if(temp.right!=null) queue.offer(temp.right);
+                if(len != 0){
                     temp.next = queue.peek();
-              }
+                }
             }
         }
         return root;
