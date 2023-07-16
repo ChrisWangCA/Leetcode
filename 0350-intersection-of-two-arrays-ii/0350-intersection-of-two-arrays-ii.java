@@ -6,9 +6,9 @@ class Solution {
             res[i] += 1;
         }
         for(int j:nums2){
-            if(res[j] > 0){
+            if(res[j] != 0){
                 list.add(j);
-                res[j]--;
+                res[j] -= 1;
             }
         }
         return list.stream().mapToInt(s->s).toArray();
