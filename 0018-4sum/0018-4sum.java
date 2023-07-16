@@ -6,22 +6,21 @@ class Solution {
             if(nums[i] > target && nums[i] > 0) return res;
             if(i > 0 && nums[i] == nums[i-1]) continue;
             for(int j=i+1;j<nums.length;j++){
-                if(j>i+1 && nums[j] == nums[j-1]) continue;
-                int left = j+1;
-                int right = nums.length-1;
-                while(right > left){
-                    int sum = nums[i]+nums[j]+nums[left]+nums[right];
+                if(j > i+1 && nums[j] == nums[j-1]) continue;
+                int l = j+1;
+                int r = nums.length-1;
+                while(r > l){
+                    int sum = nums[i]+nums[j]+nums[l]+nums[r];
                     if(sum>target){
-                        right--;
+                        r--;
                     }else if(sum<target){
-                        left++;
+                        l++;
                     }else{
-                        res.add(Arrays.asList(nums[i],nums[j],nums[left],nums[right]));
-                        while(right>left && nums[right] == nums[right-1]) right--;
-                        while(right>left && nums[left] == nums[left+1]) left++;
-                        left++;
-                        right--;
-                        
+                        res.add(Arrays.asList(nums[i],nums[j],nums[l],nums[r]));
+                        while(r>l && nums[r]==nums[r-1])r--;
+                        while(r>l && nums[l]==nums[l+1])l++;
+                        r--;
+                        l++;
                     }
                 }
             }
