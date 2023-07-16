@@ -21,8 +21,8 @@ class Solution {
     public boolean isSame(TreeNode left,TreeNode right){
         if(left == null && right == null) return true;
         if(left == null || right == null || left.val != right.val) return false;
-        boolean l = isSame(left.left,right.right);
-        boolean r = isSame(left.right,right.left);
-        return l && r;
+        boolean inside = isSame(left.left,right.right);
+        boolean outside = isSame(left.right, right.left);
+        return inside && outside;
     }
 }
