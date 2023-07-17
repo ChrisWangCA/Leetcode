@@ -11,11 +11,13 @@ class MyStack {
     }
     
     public int pop() {
-        int len = queue.size();
-        len--;
-        while(len-- > 0){
-            queue.addLast(queue.peekFirst());
-            queue.pollFirst();
+        int i = queue.size();
+        i--;
+        while(i-- > 0){
+            if(!queue.isEmpty()){
+                queue.addLast(queue.peekFirst());
+                queue.pollFirst();
+            }
         }
         return queue.pollFirst();
     }
