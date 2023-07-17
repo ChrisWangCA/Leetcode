@@ -19,7 +19,7 @@ class Solution {
         recursion(root,list);
         return list;
     }
-    public void recursion(TreeNode root, List<Integer> list){
+    public void recursion(TreeNode root,List<Integer> list){
         if(root == null) return;
         recursion(root.left,list);
         recursion(root.right,list);
