@@ -14,20 +14,30 @@
  * }
  */
 class Solution {
-    public int findBottomLeftValue(TreeNode root) {
+          int maxDepth = Integer.MIN_VALUE;
         int res = 0;
-        if(root == null) return res;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while(!queue.isEmpty()){
-            int len = queue.size();
-            for(int i=0;i<len;i++){
-                TreeNode temp = queue.poll();
-                if(temp.left != null) queue.offer(temp.left);
-                if(temp.right != null) queue.offer(temp.right);
-                if(i == 0) res = temp.val;
-            }
-        }
+    public int findBottomLeftValue(TreeNode root) {
+        traversal(root,0);
         return res;
+    }
+    public void traversal(TreeNode root,int depth){
+        if(root.left == null && root.right == null){
+            if(depth > maxDepth){
+                maxDepth = depth;
+                res = root.val;
+            }
+            return;
+        }
+        if(root.left != null){
+            depth ++;
+            traversal(root.left,depth);
+            depth--;
+        }
+        if(root.right != null){
+            depth ++;
+            traversal(root.right,depth);
+            depth--;
+        }
+        return;
     }
 }
