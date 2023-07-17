@@ -1,8 +1,8 @@
 class MyQueue {
-    
+
     Stack<Integer> stackIn;
     Stack<Integer> stackOut;
-
+    
     public MyQueue() {
         stackIn = new Stack<>();
         stackOut = new Stack<>();
