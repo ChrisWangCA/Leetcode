@@ -22,9 +22,7 @@ class Solution {
     
     public boolean isSame(TreeNode root,TreeNode subRoot){
         if(root == null && subRoot == null) return true;
-        if(root==null || subRoot==null || root.val != subRoot.val) return false;
-        boolean left = isSame(root.left,subRoot.left);
-        boolean right = isSame(root.right,subRoot.right);
-        return left && right;
+        if(root == null || subRoot == null || root.val != subRoot.val) return false;
+        return isSame(root.left,subRoot.left) && isSame(root.right,subRoot.right);
     }
 }
