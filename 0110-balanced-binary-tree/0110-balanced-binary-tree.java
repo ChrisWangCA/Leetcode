@@ -16,10 +16,11 @@
 class Solution {
     public boolean isBalanced(TreeNode root) {
         if(root == null) return true;
-        return Math.abs(func(root.left)-func(root.right)) <= 1
-            && isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(func(root.left)-func(root.right)) <= 1 &&
+            isBalanced(root.left) && isBalanced(root.right);
     }
-    public int func (TreeNode root){
+    
+    public int func(TreeNode root){
         if(root == null) return 0;
         int left = func(root.left);
         int right = func(root.right);
