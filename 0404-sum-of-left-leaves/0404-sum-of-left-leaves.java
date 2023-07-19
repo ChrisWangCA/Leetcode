@@ -19,10 +19,10 @@ class Solution {
         int res = 0;
         int left = sumOfLeftLeaves(root.left);
         int right = sumOfLeftLeaves(root.right);
-        if(root.left != null && root.left.left==null && root.left.right==null){
+        if(root.left != null && root.left.left == null && root.left.right == null){
             res += root.left.val;
         }
-        int sum = res+left+right;
+        int sum = res + left + right;
         return sum;
     }
 }
