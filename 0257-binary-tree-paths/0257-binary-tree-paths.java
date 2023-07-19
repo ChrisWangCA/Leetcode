@@ -16,12 +16,11 @@
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> res = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
-        recursion(root,res,path);
+        List<Integer> list = new ArrayList<>();
+        recursion(root,res,list);
         return res;
     }
-    
-    public void recursion(TreeNode root,List<String> res, List<Integer> list){
+    public void recursion(TreeNode root,List<String> res,List<Integer> list){
         list.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
