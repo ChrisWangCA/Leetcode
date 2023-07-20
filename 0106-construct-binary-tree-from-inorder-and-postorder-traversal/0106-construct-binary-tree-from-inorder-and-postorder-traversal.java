@@ -15,34 +15,33 @@
  */
 class Solution {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if(inorder.length == 0 || postorder.length == 0) return null;
-        return func(inorder,0,inorder.length,postorder,0,postorder.length);
+        if(inorder.length==0 || postorder.length==0) return null;
+        return build(inorder,0,inorder.length,postorder,0,postorder.length);
     }
     
-    public TreeNode func(int[] inorder,int inorderStart, int inorderEnd, int[] postorder, int postStart, int postEnd){
+    public TreeNode build(int[] inorder, int inStart, int inEnd,
+                         int[] postorder,int postStart,int postEnd){
         if(postStart == postEnd) return null;
         int rootValue = postorder[postEnd-1];
         TreeNode root = new TreeNode(rootValue);
-        int i;
-        for(i=inorderStart;i<inorderEnd;i++){
-            if(inorder[i] == rootValue){
+        int mid;
+        for(mid = inStart;mid<inEnd;mid++){
+            if(inorder[mid] == rootValue){
                 break;
             }
         }
-        int leftInorderStart = inorderStart;
-        int leftInorderEnd = i;
-        int rightInorderStart = i+1;
-        int rightInorderEnd = inorderEnd;
+        int leftInStart = inStart;
+        int leftInEnd = mid;
+        int rightInStart = mid+1;
+        int rightInEnd = inEnd;
         
         int leftPostStart = postStart;
-        int leftPostEnd = postStart + (i - inorderStart);
+        int leftPostEnd = postStart + (mid - inStart);
         int rightPostStart = leftPostEnd;
-        int rightPostEnd = postEnd -1;
+        int rightPostEnd = postEnd-1;
         
-        root.left = func(inorder,leftInorderStart,leftInorderEnd,postorder,
-                         leftPostStart,leftPostEnd);
-        root.right = func(inorder,rightInorderStart,rightInorderEnd,postorder,
-                         rightPostStart,rightPostEnd);
+        root.left = build(inorder,leftInStart, leftInEnd,postorder,leftPostStart,leftPostEnd);
+        root.right = build(inorder,rightInStart,rightInEnd,postorder,rightPostStart,rightPostEnd);
         return root;
     }
 }
