@@ -18,11 +18,12 @@ class Solution {
         List<List<Integer>> res = new ArrayList<>();
         if(root == null) return res;
         List<Integer> path = new ArrayList<>();
-        addPath(root,targetSum,res,path);
+        traversal(root,targetSum,res,path);
         return res;
     }
     
-    public void addPath(TreeNode root,int target, List<List<Integer>> res,List<Integer> path){
+    public void traversal(TreeNode root,int target, List<List<Integer>> res,
+                         List<Integer> path){
         path.add(root.val);
         if(root.left == null && root.right == null){
             if(target - root.val == 0){
@@ -30,11 +31,11 @@ class Solution {
             }
         }
         if(root.left != null){
-            addPath(root.left,target-root.val,res,path);
+            traversal(root.left,target-root.val,res,path);
             path.remove(path.size()-1);
         }
         if(root.right != null){
-            addPath(root.right,target-root.val,res,path);
+            traversal(root.right,target-root.val,res,path);
             path.remove(path.size()-1);
         }
     }
