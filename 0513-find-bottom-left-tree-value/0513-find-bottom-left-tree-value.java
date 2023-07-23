@@ -14,16 +14,15 @@
  * }
  */
 class Solution {
-    int res = 0;
     int maxDepth = Integer.MIN_VALUE;
+    int res = 0;
     public int findBottomLeftValue(TreeNode root) {
         if(root == null) return 0;
-        traversal(root,0);
+        find(root,0);
         return res;
-        
     }
     
-    public void traversal(TreeNode root,int depth){
+    public void find(TreeNode root,int depth){
         if(root.left == null && root.right == null){
             if(depth > maxDepth){
                 maxDepth = depth;
@@ -32,12 +31,12 @@ class Solution {
         }
         if(root.left != null){
             depth++;
-            traversal(root.left,depth);
+            find(root.left,depth);
             depth--;
         }
         if(root.right != null){
             depth++;
-            traversal(root.right,depth);
+            find(root.right,depth);
             depth--;
         }
     }
