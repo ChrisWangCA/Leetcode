@@ -15,17 +15,16 @@
  */
 class Solution {
     long min = Long.MIN_VALUE;
-    
     public boolean isValidBST(TreeNode root) {
-        return recursion(root);
+        return isValid(root);
     }
     
-    public boolean recursion(TreeNode root){
+    public boolean isValid(TreeNode root){
         if(root == null) return true;
-        boolean left = recursion(root.left);
+        boolean left = isValid(root.left);
         if(root.val <= min) return false;
         min = root.val;
-        boolean right = recursion(root.right);
-        return left  && right;
+        boolean right = isValid(root.right);
+        return left && right;
     }
 }
