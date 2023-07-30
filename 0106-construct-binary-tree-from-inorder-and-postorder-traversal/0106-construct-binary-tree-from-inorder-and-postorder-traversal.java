@@ -18,15 +18,13 @@ class Solution {
         if(inorder.length == 0 || postorder.length == 0) return null;
         return build(inorder,0,inorder.length,postorder,0,postorder.length);
     }
-    
-    public TreeNode build(int[] inorder,int inStart,int inEnd,
-                         int[] postorder, int postStart, int postEnd){
+    public TreeNode build(int[] in, int inStart,int inEnd, int[] post,int postStart,int postEnd){
         if(postStart == postEnd) return null;
-        int rootVal = postorder[postEnd-1];
+        int rootVal = post[postEnd-1];
         TreeNode root = new TreeNode(rootVal);
         int mid;
-        for(mid = inStart;mid < inEnd;mid++){
-            if(inorder[mid] == rootVal) break;
+        for(mid = inStart;mid<inEnd;mid++){
+            if(in[mid] == rootVal) break;
         }
         int leftInStart = inStart;
         int leftInEnd = mid;
@@ -38,10 +36,8 @@ class Solution {
         int rightPostStart = leftPostEnd;
         int rightPostEnd = postEnd-1;
         
-        root.left = build(inorder,leftInStart,leftInEnd,
-                         postorder,leftPostStart,leftPostEnd);
-        root.right = build(inorder,rightInStart,rightInEnd,
-                          postorder,rightPostStart,rightPostEnd);
+        root.left = build(in,leftInStart,leftInEnd,post,leftPostStart,leftPostEnd);
+        root.right = build(in,rightInStart,rightInEnd,post,rightPostStart,rightPostEnd);
         return root;
     }
 }
