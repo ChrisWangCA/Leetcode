@@ -19,29 +19,26 @@ class Solution {
         return build(preorder,0,preorder.length,inorder,0,inorder.length);
     }
     
-    public TreeNode build(int[] preorder,int preStart,int preEnd,
-                      int[] inorder,int inStart,int inEnd){
-        if(preStart == preEnd) return null;
-        int rootVal = preorder[preStart];
+    public TreeNode build(int[] pre, int pS,int pE, int[] in, int iS, int iE){
+        if(pS == pE) return null;
+        int rootVal = pre[pS];
         TreeNode root = new TreeNode(rootVal);
         int mid;
-        for(mid = inStart;mid < inEnd;mid++){
-            if(inorder[mid] == rootVal) break;
+        for(mid = iS;mid < iE;mid++){
+            if(in[mid] == rootVal) break;
         }
-        int leftInStart = inStart;
-        int leftInEnd = mid;
-        int rightInStart = mid+1;
-        int rightInEnd = inEnd;
+        int leftIS = iS;
+        int leftIE = mid;
+        int rightIS = mid+1;
+        int rightIE = iE;
         
-        int leftPreStart = preStart + 1;
-        int leftPreEnd = preStart+1+(mid-inStart);
-        int rightPreStart = leftPreEnd;
-        int rightPreEnd = preEnd;
+        int leftPS = pS + 1;
+        int leftPE = pS + 1 + (mid - iS);
+        int rightPS = leftPE;
+        int rightPE = pE;
         
-        root.left = build(preorder,leftPreStart,leftPreEnd,
-                         inorder, leftInStart,leftInEnd);
-        root.right = build(preorder,rightPreStart,rightPreEnd,
-                          inorder,rightInStart,rightInEnd);
+        root.left = build(pre, leftPS, leftPE,in, leftIS, leftIE);
+        root.right = build(pre, rightPS, rightPE, in, rightIS,rightIE);
         return root;
     }
 }
