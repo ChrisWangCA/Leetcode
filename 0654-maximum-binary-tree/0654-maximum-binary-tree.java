@@ -17,12 +17,11 @@ class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         return construct(nums,0,nums.length);
     }
-    
     public TreeNode construct(int[] nums,int leftIndex,int rightIndex){
-        if(rightIndex - leftIndex < 1)return null;
+        if(rightIndex - leftIndex < 1) return null;
         if(rightIndex - leftIndex == 1) return new TreeNode(nums[leftIndex]);
-        int maxIndex = leftIndex;
         int maxValue = nums[leftIndex];
+        int maxIndex = leftIndex;
         for(int i=leftIndex+1;i<rightIndex;i++){
             if(nums[i] > maxValue){
                 maxValue = nums[i];
@@ -30,7 +29,7 @@ class Solution {
             }
         }
         TreeNode root = new TreeNode(maxValue);
-        root.left = construct(nums,leftIndex, maxIndex);
+        root.left = construct(nums,leftIndex,maxIndex);
         root.right = construct(nums,maxIndex+1,rightIndex);
         return root;
     }
