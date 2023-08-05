@@ -30,13 +30,11 @@ class Solution {
             }
         }
         if(root.left != null){
-            depth++;
-            find(root.left,depth);
+            find(root.left,++depth);
             depth--;
         }
         if(root.right != null){
-            depth++;
-            find(root.right,depth);
+            find(root.right,++depth);
             depth--;
         }
     }
