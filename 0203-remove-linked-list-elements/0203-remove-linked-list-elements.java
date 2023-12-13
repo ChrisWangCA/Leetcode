@@ -13,10 +13,10 @@ class Solution {
         ListNode dummy = new ListNode(-1, head);
         ListNode cur = dummy;
         while(cur.next != null){
-            if(cur.next.val == val){
-                cur.next = cur.next.next;
-            }else{
+            if(cur.next.val != val){
                 cur = cur.next;
+            }else{
+                cur.next = cur.next.next;
             }
         }
         return dummy.next;
