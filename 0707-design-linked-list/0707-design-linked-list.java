@@ -1,15 +1,15 @@
 class MyLinkedList {
     
-    ListNode head;
     int N;
-    
+    ListNode head;
     public class ListNode{
         int val;
         ListNode next;
-        ListNode(){};
-        ListNode(int val){this.val = val;}
+        ListNode(){}
+        ListNode(int val){
+            this.val = val;
+        }
     }
-
     public MyLinkedList() {
         head = new ListNode();
     }
@@ -24,16 +24,16 @@ class MyLinkedList {
     }
     
     public void addAtHead(int val) {
-        ListNode newNode = new ListNode(val);
         ListNode cur = head;
+        ListNode newNode = new ListNode(val);
         newNode.next = cur.next;
         cur.next = newNode;
         N++;
     }
     
     public void addAtTail(int val) {
-        ListNode newNode = new ListNode(val);
         ListNode cur = head;
+        ListNode newNode = new ListNode(val);
         if(cur == null){
             head = newNode;
         }else{
@@ -49,8 +49,8 @@ class MyLinkedList {
     public void addAtIndex(int index, int val) {
         if(index < 0) index = 0;
         if(index > N) return;
-        ListNode newNode = new ListNode(val);
         ListNode cur = head;
+        ListNode newNode = new ListNode(val);
         for(int i=0;i<index;i++){
             cur = cur.next;
         }
