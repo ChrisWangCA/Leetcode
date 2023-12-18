@@ -5,11 +5,11 @@ class Solution {
         int left = 0;
         int[] res = new int[fruits.length];
         for(int i=0;i<fruits.length;i++){
-            int cur = fruits[i];
-            if(res[cur] == 0){
+            int curFruit = fruits[i];
+            if(res[curFruit]==0){
                 maxBasket++;
             }
-            res[cur]++;
+            res[curFruit]++;
             while(maxBasket > 2){
                 int leftFruit = fruits[left];
                 res[leftFruit]--;
@@ -18,7 +18,7 @@ class Solution {
                 }
                 left++;
             }
-            maxFruit = Math.max(i - left + 1, maxFruit);
+            maxFruit = Math.max(maxFruit, i-left+1);
         }
         return maxFruit;
     }
