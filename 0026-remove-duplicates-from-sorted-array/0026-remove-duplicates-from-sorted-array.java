@@ -1,9 +1,9 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
         int slow = 0;
-        for(int fast=1;fast<nums.length;fast++){
-            if(nums[fast]!=nums[slow]){
-                nums[++slow] = nums[fast];
+        for(int i=1;i<nums.length;i++){
+            if(nums[i] != nums[slow]){
+                nums[++slow] = nums[i];
             }
         }
         return slow+1;
