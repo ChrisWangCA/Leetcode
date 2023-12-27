@@ -4,13 +4,13 @@ class Solution {
         for(String str:strs){
             char[] chs = str.toCharArray();
             Arrays.sort(chs);
-            String s = new String(chs);
-            if(map.containsKey(s)){
-                map.get(s).add(str);
+            String s1 = new String(chs);
+            if(map.containsKey(s1)){
+                map.get(s1).add(str);
             }else{
-                List<String> val = new ArrayList<>();
-                val.add(str);
-                map.put(s,val);
+                List<String> list = new ArrayList<>();
+                list.add(str);
+                map.put(s1,list);
             }
         }
         return new ArrayList<>(map.values());
