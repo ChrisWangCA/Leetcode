@@ -6,7 +6,7 @@ class Solution {
             res[i] += 1;
         }
         for(int j:nums2){
-            if(res[j] != 0){
+            if(res[j] > 0){
                 set.add(j);
             }
         }
