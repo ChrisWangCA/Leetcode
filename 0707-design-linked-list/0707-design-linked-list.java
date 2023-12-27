@@ -7,7 +7,7 @@ class MyLinkedList {
         int val;
         ListNode next;
         ListNode(){}
-        ListNode(int val){
+        ListNode(int val) {
             this.val = val;
         }
     }
@@ -26,16 +26,16 @@ class MyLinkedList {
     }
     
     public void addAtHead(int val) {
-        ListNode newNode = new ListNode(val);
         ListNode cur = head;
+        ListNode newNode = new ListNode(val);
         newNode.next = cur.next;
         cur.next = newNode;
         N++;
     }
     
     public void addAtTail(int val) {
-        ListNode newNode = new ListNode(val);
         ListNode cur = head;
+        ListNode newNode = new ListNode(val);
         if(cur == null){
             head = newNode;
         }else{
@@ -49,10 +49,10 @@ class MyLinkedList {
     }
     
     public void addAtIndex(int index, int val) {
+        ListNode cur = head;
+        ListNode newNode = new ListNode(val);
         if(index < 0) index = 0;
         if(index > N) return;
-        ListNode newNode = new ListNode(val);
-        ListNode cur = head;
         for(int i=0;i<index;i++){
             cur = cur.next;
         }
@@ -62,8 +62,8 @@ class MyLinkedList {
     }
     
     public void deleteAtIndex(int index) {
-        ListNode cur = head;
         if(index < 0 || index >= N) return;
+        ListNode cur = head;
         for(int i=0;i<index;i++){
             cur = cur.next;
         }
