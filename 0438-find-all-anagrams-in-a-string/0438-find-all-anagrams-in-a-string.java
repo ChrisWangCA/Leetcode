@@ -1,33 +1,21 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
-        if (p.length() > s.length()) {
-            return Collections.emptyList();
+        List<Integer> res = new ArrayList<>();
+        if(p.length() > s.length()) return Collections.emptyList();
+        int[] s1 = new int[26];
+        int[] p1 = new int[26];
+        for(int i=0;i<p.length();i++){
+            s1[s.charAt(i) - 'a']++;
+            p1[p.charAt(i) - 'a']++;
         }
-
-        List<Integer> result = new ArrayList<>();
-        int[] pCount = new int[26];
-        int[] sCount = new int[26];
-
-        // 填充pCount和sCount的初始值
-        for (int i = 0; i < p.length(); i++) {
-            pCount[p.charAt(i) - 'a']++;
-            sCount[s.charAt(i) - 'a']++;
-        }
-
-        if (Arrays.equals(pCount, sCount)) {
-            result.add(0);
-        }
-
-        // 开始滑动窗口
-        for (int i = p.length(); i < s.length(); i++) {
-            sCount[s.charAt(i) - 'a']++;
-            sCount[s.charAt(i - p.length()) - 'a']--;
-
-            if (Arrays.equals(pCount, sCount)) {
-                result.add(i - p.length() + 1);
+        if(Arrays.equals(s1,p1)) res.add(0);
+        for(int i=p.length();i<s.length();i++){
+            s1[s.charAt(i) - 'a']++;
+            s1[s.charAt(i-p.length()) - 'a']--;
+            if(Arrays.equals(s1,p1)){
+                res.add(i-p.length()+1);
             }
         }
-
-        return result;
+        return res;
     }
 }
