@@ -10,10 +10,10 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<str.length;i++){
             if(!str[i].equals("")){
-                if(i == str.length-1){
-                    sb.append(str[i]);
-                }else{
+                if(i != str.length-1){
                     sb.append(str[i]).append(" ");
+                }else{
+                    sb.append(str[i]);
                 }
             }
         }
