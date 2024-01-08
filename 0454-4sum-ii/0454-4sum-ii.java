@@ -11,8 +11,8 @@ class Solution {
         for(int i:nums3){
             for(int j:nums4){
                 int sum = i+j;
-                if(map.containsKey(0 - sum)){
-                    res += map.get(0 - sum);
+                if(map.containsKey(0-sum)){
+                    res += map.get(0-sum);
                 }
             }
         }
