@@ -1,13 +1,13 @@
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
-        if(nums.length < 3 || nums == null) return res;
+        if(nums == null || nums.length < 3) return res;
         Arrays.sort(nums);
         for(int i=0;i<nums.length;i++){
             if(nums[i] > target && nums[i] > 0) return res;
             if(i > 0 && nums[i] == nums[i-1]) continue;
             for(int j=i+1;j<nums.length;j++){
-                if(j > i+1 && nums[j] == nums[j-1]) continue;
+                if(j>i+1 && nums[j] == nums[j-1]) continue;
                 int l = j+1;
                 int r = nums.length-1;
                 while(l < r){
