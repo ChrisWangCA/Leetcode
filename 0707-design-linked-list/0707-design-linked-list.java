@@ -7,7 +7,7 @@ class MyLinkedList {
         int val;
         ListNode next;
         ListNode(){}
-        ListNode(int val) {
+        ListNode(int val){
             this.val = val;
         }
     }
@@ -49,10 +49,10 @@ class MyLinkedList {
     }
     
     public void addAtIndex(int index, int val) {
-        ListNode cur = head;
-        ListNode newNode = new ListNode(val);
         if(index < 0) index = 0;
         if(index > N) return;
+        ListNode cur = head;
+        ListNode newNode = new ListNode(val);
         for(int i=0;i<index;i++){
             cur = cur.next;
         }
