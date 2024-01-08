@@ -7,7 +7,6 @@ class Solution {
         }
         return n == 1;
     }
-    
     public int getN(int n){
         int res = 0;
         while(n > 0){
