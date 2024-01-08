@@ -11,9 +11,9 @@ class MyStack {
     }
     
     public int pop() {
-        int i = queue.size();
-        i--;
-        while(i-- > 0){
+        int size = queue.size();
+        size--;
+        while(size-- > 0){
             if(!queue.isEmpty()){
                 queue.addLast(queue.peekFirst());
                 queue.pollFirst();
