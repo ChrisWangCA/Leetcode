@@ -1,7 +1,7 @@
 class MyStack {
     
     Deque<Integer> queue;
-
+    
     public MyStack() {
         queue = new ArrayDeque<>();
     }
@@ -11,13 +11,10 @@ class MyStack {
     }
     
     public int pop() {
-        int size = queue.size();
-        size--;
-        while(size-- > 0){
-            if(!queue.isEmpty()){
-                queue.addLast(queue.peekFirst());
-                queue.pollFirst();
-            }
+        int len = queue.size();
+        len--;
+        while(len-- > 0){
+            queue.addLast(queue.pollFirst());
         }
         return queue.pollFirst();
     }
