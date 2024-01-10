@@ -4,37 +4,37 @@ class Solution {
     
     class MyQueue{
         
-        void pop(int val){
-            if(!queue.isEmpty() && queue.peek() == val){
-                queue.poll();
-            }
-        }
-        
-        void add(int val){
+        public void push(int val){
             while(!queue.isEmpty() && val > queue.peekLast()){
-                queue.removeLast();
+                queue.pollLast();
             }
-            queue.add(val);
+            queue.addLast(val);
         }
         
-        int max(){
-            return queue.peek();
+        public void pop(int val){
+            if(!queue.isEmpty() && val == queue.peekFirst()){
+                queue.pollFirst();
+            }
+        }
+        
+        public int getMax(){
+            return queue.peekFirst();
         }
     }
     
     public int[] maxSlidingWindow(int[] nums, int k) {
-        int len = nums.length -k + 1;
+        int len = nums.length - k + 1;
         int[] res = new int[len];
         int index = 0;
         MyQueue queue = new MyQueue();
         for(int i=0;i<k;i++){
-            queue.add(nums[i]);
+            queue.push(nums[i]);
         }
-        res[index++] = queue.max();
+        res[index++] = queue.getMax();
         for(int i=k;i<nums.length;i++){
             queue.pop(nums[i-k]);
-            queue.add(nums[i]);
-            res[index++] = queue.max();
+            queue.push(nums[i]);
+            res[index++] = queue.getMax();
         }
         return res;
     }
