@@ -21,12 +21,11 @@ class Solution {
         queue.offer(root);
         while(!queue.isEmpty()){
             int len = queue.size();
-            while(len > 0){
-                len--;
+            for(int i=0;i<len;i++){
                 TreeNode temp = queue.poll();
                 if(temp.left != null) queue.offer(temp.left);
                 if(temp.right != null) queue.offer(temp.right);
-                if(len == 0) res.add(temp.val);
+                if(i == len-1) res.add(temp.val);
             }
         }
         return res;
