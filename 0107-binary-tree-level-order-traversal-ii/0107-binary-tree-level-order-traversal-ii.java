@@ -15,7 +15,7 @@
  */
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        LinkedList<List<Integer>> res = new LinkedList<>();
+        List<List<Integer>> res = new ArrayList<>();
         if(root == null) return res;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -24,12 +24,20 @@ class Solution {
             List<Integer> list = new ArrayList<>();
             while(len-- > 0){
                 TreeNode temp = queue.poll();
-                if(temp.left != null) queue.offer(temp.left);
-                if(temp.right != null) queue.offer(temp.right);
+                if(temp.left != null){
+                    queue.offer(temp.left);
+                }
+                if(temp.right != null){
+                    queue.offer(temp.right);
+                }
                 list.add(temp.val);
             }
-            res.addFirst(list);
+            res.add(list);
         }
-        return res;
+        List<List<Integer>> result = new ArrayList<>();
+        for(int i=res.size()-1;i>=0;i--){
+            result.add(res.get(i));
+        }
+        return result;
     }
 }
