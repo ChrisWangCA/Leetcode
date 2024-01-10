@@ -24,16 +24,16 @@ class Solution {
         Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
-            List<Integer> list = new ArrayList<>();
             int len = queue.size();
+            List<Integer> list = new ArrayList<>();
             while(len-- > 0){
                 Node temp = queue.poll();
-                list.add(temp.val);
                 if(temp.children != null){
                     for(Node child:temp.children){
                         queue.offer(child);
                     }
                 }
+                list.add(temp.val);
             }
             res.add(list);
         }
