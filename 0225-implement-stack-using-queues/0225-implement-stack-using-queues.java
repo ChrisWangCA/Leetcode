@@ -1,7 +1,7 @@
 class MyStack {
     
     Deque<Integer> queue;
-    
+
     public MyStack() {
         queue = new ArrayDeque<>();
     }
