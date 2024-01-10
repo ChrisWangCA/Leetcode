@@ -21,14 +21,14 @@ class Solution {
         queue.offer(root);
         while(!queue.isEmpty()){
             int len = queue.size();
-            int count = 0;
             double sum = 0;
+            int count = 0;
             while(len-- > 0){
-               TreeNode temp = queue.poll();
-                if(temp.left!=null) queue.offer(temp.left);
-                if(temp.right!=null) queue.offer(temp.right);
+                TreeNode temp = queue.poll();
+                if(temp.left != null) queue.offer(temp.left);
+                if(temp.right != null) queue.offer(temp.right);
+                sum += temp.val;
                 count++;
-                sum+=temp.val;
             }
             res.add(sum / count);
         }
