@@ -26,7 +26,7 @@ class Solution {
                 TreeNode temp = queue.poll();
                 if(temp.left != null) queue.offer(temp.left);
                 if(temp.right != null) queue.offer(temp.right);
-                max = Math.max(temp.val,max);
+                max = Math.max(max,temp.val);
             }
             res.add(max);
         }
