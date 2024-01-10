@@ -24,8 +24,12 @@ class Solution {
             List<Integer> list = new ArrayList<>();
             while(len-- > 0){
                 TreeNode temp = queue.poll();
-                if(temp.left != null) queue.offer(temp.left);
-                if(temp.right != null) queue.offer(temp.right);
+                if(temp.left != null){
+                    queue.offer(temp.left);
+                }
+                if(temp.right != null){
+                    queue.offer(temp.right);
+                }
                 list.add(temp.val);
             }
             res.add(list);
