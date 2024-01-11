@@ -22,7 +22,6 @@ class Solution {
         if(root.left != null && root.left.left == null && root.left.right == null){
             res += root.left.val;
         }
-        int sum = res + left + right;
-        return sum;
+        return res + left + right;
     }
 }
