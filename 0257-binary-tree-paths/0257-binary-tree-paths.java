@@ -18,11 +18,11 @@ class Solution {
         List<String> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
         if(root == null) return res;
-        traversal(root,path,res);
+        traversal(root,res,path);
         return res;
     }
     
-    public void traversal(TreeNode root,List<Integer> path,List<String> res){
+    public void traversal(TreeNode root,List<String> res,List<Integer> path){
         path.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
@@ -36,11 +36,11 @@ class Solution {
             res.add(sb.toString());
         }
         if(root.left != null){
-            traversal(root.left,path,res);
+            traversal(root.left,res,path);
             path.remove(path.size()-1);
         }
         if(root.right != null){
-            traversal(root.right,path,res);
+            traversal(root.right,res,path);
             path.remove(path.size()-1);
         }
     }
