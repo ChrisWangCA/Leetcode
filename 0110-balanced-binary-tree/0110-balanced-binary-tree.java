@@ -16,11 +16,12 @@
 class Solution {
     public boolean isBalanced(TreeNode root) {
         if(root == null) return true;
-        return Math.abs(get(root.left) - get(root.right)) <= 1 
-            && isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(getABS(root.left)-getABS(root.right)) <= 1 && 
+            isBalanced(root.left) && isBalanced(root.right);
     }
-    public int get(TreeNode root){
+    
+    public int getABS(TreeNode root){
         if(root == null) return 0;
-        return Math.max(get(root.left),get(root.right)) + 1;
+        return Math.max(getABS(root.left),getABS(root.right))+1;
     }
 }
