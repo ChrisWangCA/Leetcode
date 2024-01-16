@@ -18,20 +18,20 @@ class Solution {
         return construct(nums,0,nums.length);
     }
     
-    public TreeNode construct(int[] nums,int leftIndex,int rightIndex){
-        if(rightIndex- leftIndex < 1) return null;
-        if(rightIndex - leftIndex == 1) return new TreeNode(nums[leftIndex]);
-        int maxValue = nums[leftIndex];
-        int maxIndex = leftIndex;
-        for(int i=leftIndex+1;i<rightIndex;i++){
+    public TreeNode construct(int[] nums,int left,int right){
+        if(right - left < 1) return null;
+        if(right - left == 1) return new TreeNode(nums[left]);
+        int maxValue = nums[left];
+        int maxIndex = left;
+        for(int i=left+1;i<right;i++){
             if(nums[i] > maxValue){
                 maxValue = nums[i];
                 maxIndex = i;
             }
         }
         TreeNode root = new TreeNode(maxValue);
-        root.left = construct(nums,leftIndex,maxIndex);
-        root.right = construct(nums,maxIndex+1,rightIndex);
+        root.left = construct(nums,left,maxIndex);
+        root.right = construct(nums,maxIndex+1,right);
         return root;
     }
 }
