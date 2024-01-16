@@ -16,32 +16,32 @@
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> res = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         if(root == null) return res;
-        traversal(root,res,path);
+        traversal(root,res,list);
         return res;
     }
     
-    public void traversal(TreeNode root,List<String> res,List<Integer> path){
-        path.add(root.val);
+    public void traversal(TreeNode root,List<String> res,List<Integer> list){
+        list.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
-            for(int i=0;i<path.size();i++){
-                if(i != path.size()-1){
-                    sb.append(path.get(i)).append("->");
+            for(int i=0;i<list.size();i++){
+                if(i != list.size()-1){
+                    sb.append(list.get(i)).append("->");
                 }else{
-                    sb.append(path.get(i));
+                    sb.append(list.get(i));
                 }
             }
             res.add(sb.toString());
         }
         if(root.left != null){
-            traversal(root.left,res,path);
-            path.remove(path.size()-1);
+            traversal(root.left,res,list);
+            list.remove(list.size()-1);
         }
         if(root.right != null){
-            traversal(root.right,res,path);
-            path.remove(path.size()-1);
+            traversal(root.right,res,list);
+            list.remove(list.size()-1);
         }
     }
 }
