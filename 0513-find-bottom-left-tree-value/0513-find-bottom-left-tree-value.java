@@ -14,8 +14,8 @@
  * }
  */
 class Solution {
-    int maxDepth = Integer.MIN_VALUE;
     int res = 0;
+    int maxDepth = Integer.MIN_VALUE;
     public int findBottomLeftValue(TreeNode root) {
         if(root == null) return 0;
         find(root,0);
