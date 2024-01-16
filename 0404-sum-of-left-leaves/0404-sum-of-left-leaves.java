@@ -15,13 +15,13 @@
  */
 class Solution {
     public int sumOfLeftLeaves(TreeNode root) {
-        int res = 0;
         if(root == null) return 0;
+        int res = 0;
         int left = sumOfLeftLeaves(root.left);
         int right = sumOfLeftLeaves(root.right);
         if(root.left != null && root.left.left == null && root.left.right == null){
             res += root.left.val;
         }
-        return res + left + right;
+        return res + left+right;
     }
 }
