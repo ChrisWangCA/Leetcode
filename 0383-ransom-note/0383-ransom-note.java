@@ -6,7 +6,7 @@ class Solution {
             res[c-'a'] += 1;
         }
         for(char c:ransomNote.toCharArray()){
-            res[c-'a'] -=1;
+            res[c-'a'] -= 1;
             if(res[c-'a'] < 0) return false;
         }
         return true;
