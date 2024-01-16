@@ -17,8 +17,9 @@ class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         return construct(nums,0,nums.length);
     }
+    
     public TreeNode construct(int[] nums,int leftIndex,int rightIndex){
-        if(rightIndex - leftIndex < 1) return null;
+        if(rightIndex- leftIndex < 1) return null;
         if(rightIndex - leftIndex == 1) return new TreeNode(nums[leftIndex]);
         int maxValue = nums[leftIndex];
         int maxIndex = leftIndex;
