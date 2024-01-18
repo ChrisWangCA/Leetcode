@@ -17,16 +17,17 @@ class Solution {
     int min = Integer.MAX_VALUE;
     TreeNode pre = null;
     public int getMinimumDifference(TreeNode root) {
-        process(root);
+        getMin(root);
         return min;
     }
-    public void process(TreeNode root){
+    
+    public void getMin(TreeNode root){
         if(root == null) return;
-        process(root.left);
+        getMin(root.left);
         if(pre != null){
             min = Math.min(min,root.val - pre.val);
         }
         pre = root;
-        process(root.right);
+        getMin(root.right);
     }
 }
