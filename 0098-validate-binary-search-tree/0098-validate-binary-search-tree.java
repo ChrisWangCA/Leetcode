@@ -22,7 +22,7 @@ class Solution {
     public boolean isValid(TreeNode root){
         if(root == null) return true;
         boolean left = isValid(root.left);
-        if(root.val <= min) return false;
+        if(min >= root.val) return false;
         min = root.val;
         boolean right = isValid(root.right);
         return left && right;
