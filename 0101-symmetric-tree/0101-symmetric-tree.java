@@ -18,9 +18,9 @@ class Solution {
         return isSame(root.left,root.right);
     }
     
-    public boolean isSame(TreeNode left, TreeNode right){
-        if(left == null && right == null) return true;
-        if(left == null || right == null || left.val != right.val) return false;
-        return isSame(left.left,right.right) && isSame(left.right,right.left);
+    public boolean isSame(TreeNode p,TreeNode q){
+        if(p == null && q == null) return true;
+        if(p == null || q == null || p.val != q.val) return false;
+        return isSame(p.left,q.right) && isSame(p.right,q.left);
     }
 }
