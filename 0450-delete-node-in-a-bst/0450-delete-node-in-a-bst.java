@@ -15,13 +15,13 @@
  */
 class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
-        if(root == null) return null;
+        if(root == null) return root;
         if(root.val == key){
             if(root.left == null && root.right == null){
                 return null;
             }else if(root.left != null && root.right == null){
                 return root.left;
-            }else if(root.left == null && root.right != null){
+            }else if(root.right != null && root.left == null){
                 return root.right;
             }else{
                 TreeNode cur = root.right;
@@ -32,8 +32,8 @@ class Solution {
                 return root.right;
             }
         }
+        if(root.val < key) root.right = deleteNode(root.right,key);
         if(root.val > key) root.left = deleteNode(root.left,key);
-        if (root.val < key) root.right = deleteNode(root.right, key);
         return root;
     }
 }
