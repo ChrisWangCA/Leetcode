@@ -14,12 +14,12 @@
  * }
  */
 class Solution {
-    ArrayList<Integer> list = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     int maxCount = 0;
     int count = 0;
-    TreeNode pre;
+    TreeNode pre = null;
     public int[] findMode(TreeNode root) {
-        process(root);
+        find(root);
         int[] res = new int[list.size()];
         for(int i=0;i<res.length;i++){
             res[i] = list.get(i);
@@ -27,24 +27,23 @@ class Solution {
         return res;
     }
     
-    public void process(TreeNode root){
+    public void find(TreeNode root){
         if(root == null) return;
-        process(root.left);
-        int res = root.val;
-        if(pre == null || res != pre.val){
+        find(root.left);
+        int val = root.val;
+        if(pre == null || val != pre.val){
             count = 1;
         }else{
             count++;
         }
         if(count > maxCount){
             list.clear();
-            list.add(res);
+            list.add(val);
             maxCount = count;
         }else if(count == maxCount){
-            list.add(res);
+            list.add(val);
         }
         pre = root;
-        process(root.right);
+        find(root.right);
     }
-    
 }
