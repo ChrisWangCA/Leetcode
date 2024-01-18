@@ -22,6 +22,6 @@ class Solution {
         if(root.left != null && root.left.left == null && root.left.right == null){
             res += root.left.val;
         }
-        return res + left+right;
+        return res + left + right;
     }
 }
