@@ -2,13 +2,14 @@ class Solution {
     public int totalFruit(int[] fruits) {
         int[] res = new int[fruits.length];
         int left = 0;
-        int maxBasket = 0;
         int maxFruit = 0;
+        int maxBasket = 0;
         for(int i=0;i<fruits.length;i++){
-            int curFruit = fruits[i];
-            if(res[curFruit] == 0) maxBasket++;
-            res[curFruit]++;
-            
+            int cur = fruits[i];
+            if(res[cur] == 0){
+                maxBasket++;
+            }
+             res[cur]++;
             while(maxBasket > 2){
                 int leftFruit = fruits[left];
                 res[leftFruit]--;
@@ -17,7 +18,7 @@ class Solution {
                 }
                 left++;
             }
-            maxFruit = Math.max(maxFruit,i-left+1);
+            maxFruit = Math.max(i-left+1,maxFruit);
         }
         return maxFruit;
     }
