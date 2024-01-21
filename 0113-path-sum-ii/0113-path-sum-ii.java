@@ -16,26 +16,25 @@
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> res = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
         if(root == null) return res;
-        traversal(root,targetSum,res,list);
+        traversal(root,targetSum,res,path);
         return res;
     }
     
-    public void traversal(TreeNode root, int targetSum,List<List<Integer>> res,
-                          List<Integer> path){
+    public void traversal(TreeNode root, int target,List<List<Integer>> res,List<Integer> path){
         path.add(root.val);
         if(root.left == null && root.right == null){
-            if(targetSum - root.val == 0){
+            if(target - root.val == 0){
                 res.add(new ArrayList<>(path));
             }
         }
         if(root.left != null){
-            traversal(root.left,targetSum-root.val,res,path);
+            traversal(root.left,target-root.val,res,path);
             path.remove(path.size()-1);
         }
         if(root.right != null){
-            traversal(root.right,targetSum-root.val,res,path);
+            traversal(root.right,target-root.val,res,path);
             path.remove(path.size()-1);
         }
     }
