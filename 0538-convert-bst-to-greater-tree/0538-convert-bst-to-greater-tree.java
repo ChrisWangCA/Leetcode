@@ -20,11 +20,11 @@ class Solution {
         return root;
     }
     
-    public void traversal(TreeNode cur){
-        if(cur == null) return;
-        traversal(cur.right);
-        cur.val += pre;
-        pre = cur.val;
-        traversal(cur.left);
+    public void traversal(TreeNode root){
+        if(root == null) return;
+        traversal(root.right);
+        root.val += pre;
+        pre = root.val;
+        traversal(root.left);
     }
 }
