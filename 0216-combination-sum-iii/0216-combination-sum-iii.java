@@ -7,6 +7,7 @@ class Solution {
     }
     
     public void backtracing(int k,int target,int sum, int startIndex){
+        if(sum > target) return;
         if(path.size() == k){
             if(target == sum){
                 res.add(new ArrayList<>(path));
