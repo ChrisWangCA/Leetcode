@@ -15,9 +15,9 @@
  */
 class Solution {
     List<Integer> list = new ArrayList<>();
-    int maxCount = 0;
-    int count = 0;
     TreeNode pre = null;
+    int count = 0;
+    int maxCount = 0;
     public int[] findMode(TreeNode root) {
         find(root);
         int[] res = new int[list.size()];
@@ -30,18 +30,18 @@ class Solution {
     public void find(TreeNode root){
         if(root == null) return;
         find(root.left);
-        int val = root.val;
-        if(pre == null || val != pre.val){
-            count = 1;
+        int cur = root.val;
+        if(pre == null || cur != pre.val){
+            count=1;
         }else{
             count++;
         }
         if(count > maxCount){
             list.clear();
-            list.add(val);
             maxCount = count;
+            list.add(cur);
         }else if(count == maxCount){
-            list.add(val);
+            list.add(cur);
         }
         pre = root;
         find(root.right);
