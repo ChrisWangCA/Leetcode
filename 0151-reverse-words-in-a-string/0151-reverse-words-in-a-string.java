@@ -1,19 +1,19 @@
 class Solution {
     public String reverseWords(String s) {
         s = s.trim();
-        String[] chs = s.split(" ");
-        for(int i=0,j=chs.length-1;i<j;i++,j--){
-            String temp = chs[i];
-            chs[i] = chs[j];
-            chs[j] = temp;
+        String[] str = s.split(" ");
+        for(int i=0,j=str.length-1;i<j;i++,j--){
+            String temp = str[i];
+            str[i] = str[j];
+            str[j] = temp;
         }
         StringBuilder sb = new StringBuilder();
-        for(int i=0;i<chs.length;i++){
-            if(!chs[i].equals("")){
-                if(i != chs.length-1){
-                    sb.append(chs[i]).append(" ");
+        for(int i=0;i<str.length;i++){
+            if(!str[i].equals("")){
+                if(i != str.length-1){
+                    sb.append(str[i]).append(" ");
                 }else{
-                    sb.append(chs[i]);
+                    sb.append(str[i]);
                 }
             }
         }
