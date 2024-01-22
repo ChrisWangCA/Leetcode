@@ -6,10 +6,10 @@ class Solution {
         return res;
     }
     
-    public void backtracing(int k,int target,int sum, int startIndex){
-        if(sum > target) return;
+    public void backtracing(int k,int n,int sum,int startIndex){
+        if(sum > n) return;
         if(path.size() == k){
-            if(target == sum){
+            if(sum == n){
                 res.add(new ArrayList<>(path));
             }
             return;
@@ -17,9 +17,9 @@ class Solution {
         for(int i=startIndex;i<=9;i++){
             path.add(i);
             sum += i;
-            backtracing(k,target,sum,i+1);
-            sum -= i;
+            backtracing(k,n,sum,i+1);
             path.remove(path.size()-1);
+            sum -= i;
         }
     }
 }
