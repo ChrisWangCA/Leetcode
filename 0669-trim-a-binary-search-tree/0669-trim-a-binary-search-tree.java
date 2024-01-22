@@ -15,7 +15,7 @@
  */
 class Solution {
     public TreeNode trimBST(TreeNode root, int low, int high) {
-        if(root == null) return null;
+        if(root == null) return root;
         if(root.val < low){
             root.right = trimBST(root.right,low,high);
             return root.right;
