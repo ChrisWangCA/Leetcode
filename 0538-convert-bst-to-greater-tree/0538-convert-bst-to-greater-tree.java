@@ -16,15 +16,15 @@
 class Solution {
     int pre = 0;
     public TreeNode convertBST(TreeNode root) {
-        traversal(root);
+        convert(root);
         return root;
     }
     
-    public void traversal(TreeNode root){
+    public void convert(TreeNode root){
         if(root == null) return;
-        traversal(root.right);
+        convert(root.right);
         root.val += pre;
         pre = root.val;
-        traversal(root.left);
+        convert(root.left);
     }
 }
