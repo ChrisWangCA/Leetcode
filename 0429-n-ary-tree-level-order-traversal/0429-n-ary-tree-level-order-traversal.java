@@ -24,9 +24,9 @@ class Solution {
         Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
-            int len = queue.size();
+            int size = queue.size();
             List<Integer> list = new ArrayList<>();
-            while(len-- > 0){
+            while(size-- > 0){
                 Node temp = queue.poll();
                 if(temp.children != null){
                     for(Node child:temp.children){
