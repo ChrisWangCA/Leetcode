@@ -10,10 +10,11 @@ class Solution {
         if(sum > n) return;
         if(path.size() == k){
             if(sum == n){
-                res.add(new ArrayList<>(path));
-            }
+            res.add(new ArrayList<>(path));
+        }
             return;
         }
+        
         for(int i=startIndex;i<=9;i++){
             path.add(i);
             sum += i;
