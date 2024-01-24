@@ -2,9 +2,8 @@ class Solution {
     List<String> res = new ArrayList<>();
     StringBuilder sb = new StringBuilder();
     public List<String> letterCombinations(String digits) {
-        String[] strs = {"","",
-                        "abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-        if(digits == null || digits.length() == 0) return res;
+        String[] strs = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        if(digits.length() == 0 || digits == null) return res;
         backtracing(digits,strs,0);
         return res;
     }
