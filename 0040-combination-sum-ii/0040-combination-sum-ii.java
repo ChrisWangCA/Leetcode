@@ -8,7 +8,7 @@ class Solution {
     }
     
     public void backtracing(int[] nums,int target,int sum, int startIndex){
-        if(sum > target) return;
+        if(sum>target) return;
         if(sum == target){
             res.add(new ArrayList<>(path));
             return;
