@@ -14,8 +14,8 @@
  * }
  */
 class Solution {
-    int min = Integer.MAX_VALUE;
     TreeNode pre = null;
+    int min = Integer.MAX_VALUE;
     public int getMinimumDifference(TreeNode root) {
         getMin(root);
         return min;
@@ -26,7 +26,7 @@ class Solution {
         getMin(root.left);
         int val = root.val;
         if(pre != null){
-            min = Math.min(val - pre.val,min);
+            min = Math.min(min,val - pre.val);
         }
         pre = root;
         getMin(root.right);
