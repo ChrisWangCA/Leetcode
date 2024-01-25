@@ -5,7 +5,7 @@ class Solution {
         return res;
     }
     
-    public void recursive(int left, int right,String str,List<String> res){
+    public void recursive(int left,int right,String str, List<String> res){
         if(left < 0 || right < 0 || left > right) return;
         if(left == 0 && right == 0){
             res.add(str);
