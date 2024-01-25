@@ -14,15 +14,14 @@
  * }
  */
 class Solution {
+    List<String> res = new ArrayList<>();
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
-        if(root == null) return res;
-        traversal(root,res,path);
+        recursive(root,path);
         return res;
     }
     
-    public void traversal(TreeNode root, List<String> res, List<Integer> path){
+    public void recursive(TreeNode root,List<Integer> path){
         path.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
@@ -36,11 +35,11 @@ class Solution {
             res.add(sb.toString());
         }
         if(root.left != null){
-            traversal(root.left,res,path);
+            recursive(root.left,path);
             path.remove(path.size()-1);
         }
         if(root.right != null){
-            traversal(root.right,res,path);
+            recursive(root.right,path);
             path.remove(path.size()-1);
         }
     }
