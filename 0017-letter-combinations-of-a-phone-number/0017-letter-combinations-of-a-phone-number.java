@@ -8,15 +8,15 @@ class Solution {
         return res;
     }
     
-    public void backtracing(String digits,String[] strs,int nums){
-        if(nums == digits.length()){
+    public void backtracing(String digits,String[] strs,int num){
+        if(num == digits.length()){
             res.add(sb.toString());
             return;
         }
-        String str = strs[digits.charAt(nums)-'0'];
+        String str = strs[digits.charAt(num)-'0'];
         for(int i=0;i<str.length();i++){
             sb.append(str.charAt(i));
-            backtracing(digits,strs,nums+1);
+            backtracing(digits,strs,num+1);
             sb.deleteCharAt(sb.length()-1);
         }
     }
