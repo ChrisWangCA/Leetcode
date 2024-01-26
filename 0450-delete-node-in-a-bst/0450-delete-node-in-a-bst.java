@@ -32,13 +32,8 @@ class Solution {
                 return root.right;
             }
         }
-        if(root.val > key){
-            root.left = deleteNode(root.left,key);
-        }
-        if(root.val < key){
-            root.right = deleteNode(root.right,key);
-        }
+        root.left = deleteNode(root.left,key);
+        root.right = deleteNode(root.right,key);
         return root;
     }
-    
 }
