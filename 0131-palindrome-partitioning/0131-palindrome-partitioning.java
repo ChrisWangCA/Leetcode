@@ -1,7 +1,7 @@
 class Solution {
+    
     List<List<String>> res = new ArrayList<>();
     List<String> path = new ArrayList<>();
-    
     public List<List<String>> partition(String s) {
         backtracing(s,0);
         return res;
@@ -16,6 +16,7 @@ class Solution {
             if(isValid(s,startIndex,i)){
                 String str = s.substring(startIndex,i+1);
                 path.add(str);
+
             }else{
                 continue;
             }
@@ -26,7 +27,9 @@ class Solution {
     
     public boolean isValid(String s,int start,int end){
         for(int i=start;i<=end;i++,end--){
-            if(s.charAt(i) != s.charAt(end)) return false;
+            if(s.charAt(i) != s.charAt(end)){
+                return false;
+            }
         }
         return true;
     }
