@@ -1,25 +1,25 @@
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        char[] s1 = s.toCharArray();
-        char[] t1 = t.toCharArray();
+        char[] chs = s.toCharArray();
         int slow = 0;
-        for(int i=0;i<s1.length;i++){
-            if(s1[i] != '#'){
-                s1[slow++] = s1[i];
+        for(int i=0;i<chs.length;i++){
+            if(chs[i] == '#'){
+                slow = Math.max(0,slow-1);
             }else{
-                slow = Math.max(slow-1,0);
+                chs[slow++] = chs[i];
             }
         }
-        String s2 = new String(s1,0,slow);
+        String r1 = new String(chs,0,slow);
         slow = 0;
-        for(int i=0;i<t1.length;i++){
-            if(t1[i] != '#'){
-                t1[slow++] = t1[i];
+        char[] cht = t.toCharArray();
+        for(int i=0;i<cht.length;i++){
+            if(cht[i] == '#'){
+                slow = Math.max(0,slow-1);
             }else{
-                slow = Math.max(slow-1,0);
+                cht[slow++] = cht[i];
             }
         }
-        String t2 = new String(t1,0,slow);
-        return s2.equals(t2);
+        String r2 = new String(cht,0,slow);
+        return r1.equals(r2);
     }
 }
