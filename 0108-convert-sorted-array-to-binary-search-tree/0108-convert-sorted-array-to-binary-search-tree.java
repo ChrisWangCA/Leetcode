@@ -18,12 +18,13 @@ class Solution {
         return sorted(nums,0,nums.length-1);
     }
     
-    public TreeNode sorted(int[] res,int left,int right){
+    public TreeNode sorted(int[] nums,int left,int right){
         if(left > right) return null;
+        if(left == right) return new TreeNode(nums[left]);
         int mid = left + ((right-left)/2);
-        TreeNode root = new TreeNode(res[mid]);
-        root.left = sorted(res,left,mid-1);
-        root.right = sorted(res,mid+1,right);
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = sorted(nums,left,mid-1);
+        root.right = sorted(nums,mid+1,right);
         return root;
     }
 }
