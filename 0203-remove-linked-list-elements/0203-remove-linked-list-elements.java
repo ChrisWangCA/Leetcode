@@ -18,7 +18,8 @@ class Solution {
             }else{
                 cur = cur.next;
             }
+            
         }
         return dummy.next;
     }
-}
+} 
