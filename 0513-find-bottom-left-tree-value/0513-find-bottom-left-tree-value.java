@@ -21,7 +21,7 @@ class Solution {
         return res;
     }
     
-    public void find(TreeNode root, int depth){
+    public void find(TreeNode root,int depth){
         if(root.left == null && root.right == null){
             if(depth > maxDepth){
                 maxDepth = depth;
