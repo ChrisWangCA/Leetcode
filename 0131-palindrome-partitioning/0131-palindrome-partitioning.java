@@ -6,7 +6,6 @@ class Solution {
         backtracing(s,0);
         return res;
     }
-    
     public void backtracing(String s,int startIndex){
         if(startIndex == s.length()){
             res.add(new ArrayList<>(path));
@@ -16,7 +15,6 @@ class Solution {
             if(isValid(s,startIndex,i)){
                 String str = s.substring(startIndex,i+1);
                 path.add(str);
-
             }else{
                 continue;
             }
@@ -24,12 +22,9 @@ class Solution {
             path.remove(path.size()-1);
         }
     }
-    
     public boolean isValid(String s,int start,int end){
         for(int i=start;i<=end;i++,end--){
-            if(s.charAt(i) != s.charAt(end)){
-                return false;
-            }
+            if(s.charAt(i) != s.charAt(end)) return false;
         }
         return true;
     }
