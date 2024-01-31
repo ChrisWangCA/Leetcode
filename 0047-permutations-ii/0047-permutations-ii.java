@@ -1,4 +1,5 @@
 class Solution {
+    
     List<List<Integer>> res = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
     public List<List<Integer>> permuteUnique(int[] nums) {
@@ -7,6 +8,7 @@ class Solution {
         backtracing(nums,used);
         return res;
     }
+    
     public void backtracing(int[] nums,boolean[] used){
         if(path.size() == nums.length){
             res.add(new ArrayList<>(path));
@@ -18,8 +20,8 @@ class Solution {
             path.add(nums[i]);
             used[i] = true;
             backtracing(nums,used);
-            used[i] = false;
             path.remove(path.size()-1);
+            used[i] = false;
         }
     }
 }
