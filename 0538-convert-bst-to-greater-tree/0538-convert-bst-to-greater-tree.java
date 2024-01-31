@@ -14,18 +14,17 @@
  * }
  */
 class Solution {
-    int pre = 0;
+    int res = 0;
     public TreeNode convertBST(TreeNode root) {
         return convert(root);
-        
     }
     
     public TreeNode convert(TreeNode root){
         if(root == null) return null;
-        convert(root.right);
-        root.val += pre;
-        pre = root.val;
-        convert(root.left);
+        root.right = convert(root.right);
+        root.val += res;
+        res = root.val;
+        root.left = convert(root.left);
         return root;
     }
 }
