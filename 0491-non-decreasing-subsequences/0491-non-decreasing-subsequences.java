@@ -12,7 +12,8 @@ class Solution {
         }
         Set<Integer> set = new HashSet<>();
         for(int i=startIndex;i<nums.length;i++){
-            if(!path.isEmpty() && nums[i] < path.get(path.size()-1) || set.contains(nums[i])) continue;
+            if(!path.isEmpty() && nums[i] < path.get(path.size()-1) ||
+              set.contains(nums[i])) continue;
             path.add(nums[i]);
             set.add(nums[i]);
             backtracing(nums,i+1);
