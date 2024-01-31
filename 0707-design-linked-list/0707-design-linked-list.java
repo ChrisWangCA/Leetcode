@@ -10,6 +10,7 @@ class MyLinkedList {
         ListNode(int val){
             this.val = val;
         }
+        
     }
 
     public MyLinkedList() {
