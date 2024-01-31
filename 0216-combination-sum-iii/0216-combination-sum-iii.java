@@ -1,12 +1,11 @@
 class Solution {
-    List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
     public List<List<Integer>> combinationSum3(int k, int n) {
         backtracing(k,n,0,1);
         return res;
     }
     public void backtracing(int k,int n,int sum,int startIndex){
-        if(sum > n) return;
         if(path.size() == k){
             if(sum == n){
                 res.add(new ArrayList<>(path));
