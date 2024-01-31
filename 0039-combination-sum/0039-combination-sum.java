@@ -6,7 +6,7 @@ class Solution {
         return res;
     }
     
-    public void backtracing(int[] nums,int target,int sum,int startIndex){
+    public void backtracing(int[] nums,int target,int sum, int startIndex){
         if(sum > target) return;
         if(sum == target){
             res.add(new ArrayList<>(path));
@@ -16,8 +16,8 @@ class Solution {
             path.add(nums[i]);
             sum += nums[i];
             backtracing(nums,target,sum,i);
-            sum -= nums[i];
             path.remove(path.size()-1);
+            sum -= nums[i];
         }
     }
 }
