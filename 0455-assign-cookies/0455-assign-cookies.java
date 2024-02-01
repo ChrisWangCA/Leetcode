@@ -6,9 +6,8 @@ class Solution {
         Arrays.sort(s);
         int right = s.length-1;
         for(int i=g.length-1;i>=0;i--){
-            if(s[right] >= g[i]){
+            if(right >= 0 && s[right] >= g[i]){
                 res++;
-                if(right == 0) return res;
                 right--;
             }
         }
