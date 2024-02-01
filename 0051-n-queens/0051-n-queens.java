@@ -3,30 +3,32 @@ class Solution {
         int[] record = new int[n];
         Arrays.fill(record,0);
         List<List<String>> res = new ArrayList<>();
-        process(res,record,0,n);
+        backtracing(res,record,0,n);
         return res;
     }
-    public void process(List<List<String>> res,int[] record, int cur, int n){
-        if(cur == n){
+    
+    public void backtracing(List<List<String>> res,int[] record,int row,int n){
+        if(row == n){
             List<String> list = new ArrayList<>();
             for(int i=0;i<n;i++){
-            char[] chs = new char[n];
-            Arrays.fill(chs,'.');
-            chs[record[i]] = 'Q';
-            list.add(new String(chs));
+                char[] chs = new char[n];
+                Arrays.fill(chs,'.');
+                chs[record[i]] = 'Q';
+                list.add(new String(chs));
+            }
+            res.add(list);
         }
-        res.add(list);
-    }
-    for(int j=0;j<n;j++){
-        if(valid(record,cur,j)){
-            record[cur] = j;
-            process(res,record,cur+1,n);
+        for(int i=0;i<n;i++){
+            if(isValid(record,row,i)){
+                record[row] = i;
+                backtracing(res,record,row+1,n);
+            }
         }
     }
-}
-    public boolean valid(int[] record, int cur,int j){
-        for(int k=0;k<cur;k++){
-            if(record[k] == j || Math.abs(record[k]-j)==Math.abs(cur-k)) {
+    
+    public boolean isValid(int[] record, int row, int col){
+        for(int i=0;i<row;i++){
+            if(record[i] == col || Math.abs(record[i]-col) == Math.abs(row - i)){
                 return false;
             }
         }
