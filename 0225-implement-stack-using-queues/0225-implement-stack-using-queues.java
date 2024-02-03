@@ -1,30 +1,30 @@
 class MyStack {
     
-    Deque<Integer> deque;
+    Deque<Integer> queue;
 
     public MyStack() {
-        deque = new ArrayDeque<>();
+        queue = new ArrayDeque<>();
     }
     
     public void push(int x) {
-        deque.addLast(x);
+        queue.addLast(x);
     }
     
     public int pop() {
-        int size = deque.size();
+        int size = queue.size();
         size--;
         while(size-- > 0){
-            deque.addLast(deque.pollFirst());
+            queue.addLast(queue.pollFirst());
         }
-        return deque.pollFirst();
+        return queue.pollFirst();
     }
     
     public int top() {
-        return deque.peekLast();
+        return queue.peekLast();
     }
     
     public boolean empty() {
-        return deque.isEmpty();
+        return queue.isEmpty();
     }
 }
 
