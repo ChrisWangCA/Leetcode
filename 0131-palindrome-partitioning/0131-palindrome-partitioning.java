@@ -1,5 +1,4 @@
 class Solution {
-    
     List<List<String>> res = new ArrayList<>();
     List<String> path = new ArrayList<>();
     public List<List<String>> partition(String s) {
