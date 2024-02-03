@@ -14,36 +14,35 @@
  * }
  */
 class Solution {
-    List<Integer> res = new ArrayList<>();
     int maxCount = 0;
     int count = 0;
     TreeNode pre = null;
+    List<Integer> list = new ArrayList<>();
     public int[] findMode(TreeNode root) {
-        recursive(root);
-        int[] r  = new int[res.size()];
-        for(int i=0;i<res.size();i++){
-            r[i] = res.get(i);
+        find(root);
+        int[] res = new int[list.size()];
+        for(int i=0;i<list.size();i++){
+            res[i] = list.get(i);
         }
-        return r;
+        return res;
     }
-    
-    public void recursive(TreeNode root){
+    public void find(TreeNode root){
         if(root == null) return;
-        recursive(root.left);
+        find(root.left);
         int val = root.val;
-        if(pre == null || val != pre.val){
+        if(pre != null && pre.val != val){
             count = 1;
         }else{
             count ++;
         }
         if(count > maxCount){
-            res.clear();
+            list.clear();
             maxCount = count;
-            res.add(val);
+            list.add(val);
         }else if(count == maxCount){
-            res.add(val);
+            list.add(val);
         }
         pre = root;
-        recursive(root.right);
+        find(root.right);
     }
 }
