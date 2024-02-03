@@ -17,12 +17,12 @@ class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
         if(root == null) return null;
         if(root.val == key){
-            if(root.left == null && root.right == null){
-                return null;
+            if(root.left == null && root.right != null){
+                return root.right;
             }else if(root.left != null && root.right == null){
                 return root.left;
-            }else if(root.right != null && root.left == null){
-                return root.right;
+            }else if(root.left == null && root.right == null){
+                return null;
             }else{
                 TreeNode cur = root.right;
                 while(cur.left != null){
@@ -32,8 +32,12 @@ class Solution {
                 return root.right;
             }
         }
-        root.left = deleteNode(root.left,key);
-        root.right = deleteNode(root.right,key);
+        if(root.val > key){
+            root.left = deleteNode(root.left,key);
+        }
+        if(root.val < key){
+            root.right = deleteNode(root.right,key);
+        }
         return root;
     }
 }
