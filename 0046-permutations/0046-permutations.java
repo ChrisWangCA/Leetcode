@@ -1,5 +1,4 @@
 class Solution {
-    
     List<List<Integer>> res = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
     public List<List<Integer>> permute(int[] nums) {
@@ -8,7 +7,7 @@ class Solution {
     }
     
     public void backtracing(int[] nums){
-        if(path.size() == nums.length){
+        if(nums.length == path.size()){
             res.add(new ArrayList<>(path));
             return;
         }
