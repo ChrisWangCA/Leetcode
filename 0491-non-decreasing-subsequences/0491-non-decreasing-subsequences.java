@@ -6,7 +6,7 @@ class Solution {
         return res;
     }
     
-    public void backtracing(int[] nums,int startIndex){
+    public void backtracing(int[] nums, int startIndex){
         if(path.size() >= 2){
             res.add(new ArrayList<>(path));
         }
