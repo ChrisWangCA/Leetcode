@@ -1,13 +1,12 @@
 class Solution {
+    List<List<String>> res = new ArrayList<>();
     public List<List<String>> solveNQueens(int n) {
         int[] record = new int[n];
         Arrays.fill(record,0);
-        List<List<String>> res = new ArrayList<>();
-        backtracing(res,record,0,n);
+        backtracing(record,0,n);
         return res;
-     }
-    
-    public void backtracing(List<List<String>> res,int[] record,int cur,int n){
+    }
+    public void backtracing(int[] record,int cur,int n){
         if(cur == n){
             List<String> list = new ArrayList<>();
             for(int i=0;i<n;i++){
@@ -21,14 +20,13 @@ class Solution {
         for(int i=0;i<n;i++){
             if(isValid(record,cur,i)){
                 record[cur] = i;
-                backtracing(res,record,cur+1,n);
+                backtracing(record,cur+1,n);
             }
         }
     }
-    
-    public boolean isValid(int[] record,int row,int col){
-        for(int i=0;i<row;i++){
-            if(record[i] == col || Math.abs(record[i]-col) == Math.abs(row-i)){
+    public boolean isValid(int[] record,int cur, int j){
+        for(int i=0;i<cur;i++){
+            if(record[i] == j || Math.abs(record[i]-j) == Math.abs(cur-i)){
                 return false;
             }
         }
