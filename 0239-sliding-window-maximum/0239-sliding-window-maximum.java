@@ -1,11 +1,9 @@
 class Solution {
     Deque<Integer> queue = new ArrayDeque<>();
-    
     class MyQueue{
-        
         void add(int val){
             while(!queue.isEmpty() && val > queue.peekLast()){
-                queue.removeLast();
+                queue.pollLast();
             }
             queue.addLast(val);
         }
@@ -19,9 +17,7 @@ class Solution {
         int max(){
             return queue.peekFirst();
         }
-        
     }
-    
     public int[] maxSlidingWindow(int[] nums, int k) {
         int len = nums.length-k+1;
         int[] res = new int[len];
