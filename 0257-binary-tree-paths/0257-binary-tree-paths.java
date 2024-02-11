@@ -15,32 +15,31 @@
  */
 class Solution {
     List<String> res = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     public List<String> binaryTreePaths(TreeNode root) {
-        List<Integer> path = new ArrayList<>();
-        recursive(root,path);
+        backtracing(root);
         return res;
     }
-    
-    public void recursive(TreeNode root,List<Integer> path){
-        path.add(root.val);
+    public void backtracing(TreeNode root){
+        list.add(root.val);
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
-            for(int i=0;i<path.size();i++){
-                if(i != path.size()-1){
-                    sb.append(path.get(i)).append("->");
+            for(int i=0;i<list.size();i++){
+                if(i != list.size()-1){
+                    sb.append(list.get(i)).append("->");
                 }else{
-                    sb.append(path.get(i));
+                    sb.append(list.get(i));
                 }
             }
             res.add(sb.toString());
         }
         if(root.left != null){
-            recursive(root.left,path);
-            path.remove(path.size()-1);
+            backtracing(root.left);
+            list.remove(list.size()-1);
         }
         if(root.right != null){
-            recursive(root.right,path);
-            path.remove(path.size()-1);
+            backtracing(root.right);
+            list.remove(list.size()-1);
         }
     }
 }
