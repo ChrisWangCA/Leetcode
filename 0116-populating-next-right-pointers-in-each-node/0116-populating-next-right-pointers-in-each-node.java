@@ -23,16 +23,16 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-        Queue<Node> queue=new LinkedList<>();
         if(root == null) return root;
+        Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()){
-            int len = queue.size();
-            while(len-- > 0){
+            int size = queue.size();
+            for(int i=0;i<size;i++){
                 Node temp = queue.poll();
                 if(temp.left != null) queue.offer(temp.left);
                 if(temp.right != null) queue.offer(temp.right);
-                if(len != 0){
+                if(i != size-1){
                     temp.next = queue.peek();
                 }
             }
