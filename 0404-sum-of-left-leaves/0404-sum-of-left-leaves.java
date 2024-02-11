@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    
     public int sumOfLeftLeaves(TreeNode root) {
         if(root == null) return 0;
         int res = 0;
@@ -22,6 +23,6 @@ class Solution {
         if(root.left != null && root.left.left == null && root.left.right == null){
             res += root.left.val;
         }
-        return res+left+right;
+        return res + left + right;
     }
 }
