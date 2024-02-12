@@ -6,20 +6,19 @@ class Solution {
         backtracing(candidates,target,0,0);
         return res;
     }
-    
-    public void backtracing(int[] nums,int target,int sum,int startIndex){
-        if(sum > target) return;
+    public void backtracing(int[] nums,int target,int startIndex,int sum){
         if(sum == target){
             res.add(new ArrayList<>(path));
             return;
         }
+        if(sum > target) return;
         for(int i=startIndex;i<nums.length;i++){
             if(i > startIndex && nums[i] == nums[i-1]) continue;
-            sum += nums[i];
             path.add(nums[i]);
-            backtracing(nums,target,sum,i+1);
-            path.remove(path.size()-1);
+            sum += nums[i];
+            backtracing(nums,target,i+1,sum);
             sum -= nums[i];
+            path.remove(path.size()-1);
         }
     }
 }
