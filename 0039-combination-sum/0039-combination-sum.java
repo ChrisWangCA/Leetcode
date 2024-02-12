@@ -6,18 +6,18 @@ class Solution {
         return res;
     }
     
-    public void backtracing(int[] nums,int target,int sum, int startIndex){
-        if(sum > target) return;
+    public void backtracing(int[] arrs,int target,int sum,int startIndex){
         if(sum == target){
             res.add(new ArrayList<>(path));
             return;
         }
-        for(int i=startIndex;i<nums.length;i++){
-            path.add(nums[i]);
-            sum += nums[i];
-            backtracing(nums,target,sum,i);
+        if(sum > target) return;
+        for(int i=startIndex;i<arrs.length;i++){
+            sum += arrs[i];
+            path.add(arrs[i]);
+            backtracing(arrs,target,sum,i);
+            sum -= arrs[i];
             path.remove(path.size()-1);
-            sum -= nums[i];
         }
     }
 }
