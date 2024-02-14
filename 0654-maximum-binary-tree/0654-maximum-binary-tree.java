@@ -14,25 +14,24 @@
  * }
  */
 class Solution {
-
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return construct(nums,0,nums.length);
+        return recursive(nums,0,nums.length);
     }
     
-    public TreeNode construct(int[] nums,int left,int right){
+    public TreeNode recursive(int[] nums,int left,int right){
         if(right - left < 1) return null;
         if(right - left == 0) return new TreeNode(nums[left]);
-        int maxIndex = left;
         int maxValue = nums[left];
+        int maxIndex = left;
         for(int i=left+1;i<right;i++){
-            if(nums[i] > maxValue){
+            if(maxValue < nums[i]){
                 maxValue = nums[i];
                 maxIndex = i;
             }
         }
         TreeNode root = new TreeNode(maxValue);
-        root.left = construct(nums,left,maxIndex);
-        root.right = construct(nums,maxIndex+1,right);
+        root.left = recursive(nums,left,maxIndex);
+        root.right = recursive(nums,maxIndex+1,right);
         return root;
     }
 }
