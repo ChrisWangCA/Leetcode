@@ -18,24 +18,24 @@ class Solution {
     List<Integer> path = new ArrayList<>();
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         if(root == null) return res;
-        pathFun(root,targetSum);
+        recursive(root,targetSum);
         return res;
     }
     
-    public void pathFun(TreeNode root,int targetSum){
+    public void recursive(TreeNode root,int target){
         path.add(root.val);
         if(root.left == null && root.right == null){
-            if(targetSum - root.val == 0){
+            if(target - root.val == 0){
                 res.add(new ArrayList<>(path));
             }
             return;
         }
         if(root.left != null){
-            pathFun(root.left,targetSum - root.val);
+            recursive(root.left,target - root.val);
             path.remove(path.size()-1);
         }
         if(root.right != null){
-            pathFun(root.right,targetSum - root.val);
+            recursive(root.right,target - root.val);
             path.remove(path.size()-1);
         }
     }
