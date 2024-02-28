@@ -1,21 +1,20 @@
 class Solution {
     List<List<Integer>> res = new ArrayList<>();
-    List<Integer> path = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     public List<List<Integer>> permute(int[] nums) {
         backtracing(nums);
         return res;
     }
-    
     public void backtracing(int[] nums){
-        if(nums.length == path.size()){
-            res.add(new ArrayList<>(path));
+        if(list.size() == nums.length){
+            res.add(new ArrayList<>(list));
             return;
         }
         for(int i=0;i<nums.length;i++){
-            if(path.contains(nums[i])) continue;
-            path.add(nums[i]);
+            if(list.contains(nums[i])) continue;
+            list.add(nums[i]);
             backtracing(nums);
-            path.remove(path.size()-1);
+            list.remove(list.size()-1);
         }
     }
 }
