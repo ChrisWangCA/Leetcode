@@ -20,13 +20,12 @@ class Solution {
         getMin(root);
         return min;
     }
-    
     public void getMin(TreeNode root){
         if(root == null) return;
         getMin(root.left);
         int val = root.val;
         if(pre != null){
-            min = Math.min(min,val - pre.val);
+            min = Math.min(min,val-pre.val);
         }
         pre = root;
         getMin(root.right);
