@@ -8,18 +8,18 @@ class Solution {
         return res;
     }
     public void backtracing(int[] nums,boolean[] used){
-        if(path.size()==nums.length){
+        if(path.size() == nums.length){
             res.add(new ArrayList<>(path));
             return;
         }
         for(int i=0;i<nums.length;i++){
             if(i > 0 && nums[i] == nums[i-1] && used[i-1] == false) continue;
             if(used[i] == true) continue;
-            path.add(nums[i]);
             used[i] = true;
+            path.add(nums[i]);
             backtracing(nums,used);
-            path.remove(path.size()-1);
             used[i] = false;
+            path.remove(path.size()-1);
         }
     }
 }
