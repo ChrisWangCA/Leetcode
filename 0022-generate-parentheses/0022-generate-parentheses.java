@@ -4,7 +4,7 @@ class Solution {
         recursive(res,n,n,"");
         return res;
     }
-    public void recursive(List<String> res,int left,int right,String str){
+    public void recursive(List<String> res, int left,int right,String str){
         if(left < 0 || right < 0 || left > right) return;
         if(left == 0 && right == 0){
             res.add(str);
